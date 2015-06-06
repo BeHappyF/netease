@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>链接到外部文档</title>
+  <style>
+    /*这里不能够设置padding,因为其效果是在边框以内形成空白，正文部分有下拉条，特别难看*/
+    iframe{margin:50px; border:1px solid #ccc;}
+  </style>
+</head>
+<body>
+  <h3>链接到外部文档</h3>
+  <div>
+    <!-- 在当前页面打开，可以通过回退回到上一个页面 -->
+    <a href="./site/html.html" target="_self">html</a>
+    <!-- 打开新的页面 -->
+    <a href="./site/css.html" target="_blank">css</a>
+    <!-- 通过target属性链接到新的窗口，新窗口和原来的窗口具有不同的上下文。即：js,css等文件效果相隔离。 -->
+    <a href="./site/js.html" target="inner">js</a>
+  </div>
+  <!-- 这里的frameborder和table的border属性相类似，1和10的没有区别 -->
+  <iframe frameborder="0" name="inner"></iframe>
+</body>
+</html>

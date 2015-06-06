@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video标签Demo</title>
+  <style>
+    video{
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <!-- loop:循环播放
+       muted:默认初始音频静音，可后续调节
+       autoplay:自动播放
+       controls:显示控制条 -->
+  <video loop muted autoplay controls poster="./res/poster.jpg">
+    <!-- 为了支持更多的播放器，这个source标签可设置多个，
+    如果source只有一个，这个属性其实没有必要，并且src属性设置在video标签内。可以起到相同效果 -->
+    <source src="./res/video.mp4" type="video/mp4">
+    <!-- 字幕标签 -->
+    <track kind="subtitles" src="./res/video.vtt" srclang="cn" label="cn">
+    <!-- 在使用的浏览器不支持video标签时，这段话会被显示，否则不显示 -->
+    Your browser does not support the video tag.
+  </video>
+</div>
+</body>
+</html>

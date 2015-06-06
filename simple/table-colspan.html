@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table标签Demo-跨列</title>
+  <style>
+  /* border-collapse: collapse; 会将表格的两边框合并为一条*/
+  table{border-collapse: collapse;}
+  table caption{padding:10px; text-align:center;}
+  /* border这个简写方式的三个属性分别为：border-width,border-style,border-color */
+  table td, table th{padding:1px;border:1px solid #ddd;text-align:center;}
+  /* background-color的颜色会覆盖content和padding区域 */
+  table th{background-color:#eee;}
+  /* 这样就将一行，一列的表单格设置成了相同的宽度，于是所有的表单格都是相同宽度 */
+  table thead th{width:87px;}
+  </style>
+</head>
+<body>
+  <table>
+    <caption>照片冲印价格详情</caption>
+    <thead>
+      <tr><th>相片尺寸</th><th>富士</th><th>柯达</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>6寸</th><td>0.45</td><td>0.6</td></tr>
+      <tr><th>全景6寸</th><td>0.45</td><td>0.6</td></tr>
+      <tr><th>7寸</th><td>0.89</td><td>1</td></tr>
+      <tr><th>8寸</th><td>1.69</td><td>2</td></tr>
+      <tr><th>10寸</th><td>3.89</td><td>5</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">运费8元/单，满99元免运费</td></tr>
+    </tfoot>
+  </table>
+</body>
+</html>
