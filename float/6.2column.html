@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>两列布局</title>
+	<style>
+		/*消除浏览器的部分默认属性*/
+		html, body, .body, .main, .side{margin: 0;padding: 0;height: 100%;}
+		.body{width: 960px;margin:0 auto;}
+		/* 另外的一种居中的方式 */
+		/*.body{width: 960px;position: absolute;top: 0; left: 50%; margin-left: -480px;}*/
+		.main{background-color: pink;}
+		.side{background-color: #eee;}
+		/*浮动的元素需要指定宽高 */
+		.main{float: left;width: 660px;}
+		.side{float: right;width: 300px;}
+		.clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+	</style>
+</head>
+<body>
+	<div class="body clearfix">
+		<div class="main">main</div>
+		<div class="side">side</div>
+	</div>
+</body>
+</html>
