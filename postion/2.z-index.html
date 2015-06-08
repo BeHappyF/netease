@@ -1,0 +1,27 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>z-index</title>
+	<style>
+		.sample0, .sample1{position: absolute;width: 200px;line-height: 150px;text-align: center;}
+		.sample0{background-color: #ff0;}
+		.sample1{background-color: pink;}
+
+		.sample1{top: 100px;left: 100px;}
+		/*原本sample0和sample1的元素位置只是由他们定义的先后顺序决定，但是认为给先定义的元素添加z-index.
+		 *改变了他们的渲染顺序。
+		 *当然这个值必须大于零*/
+		.sample0{z-index: 2;}
+
+		/*通过改变两个块级元素的父元素的z-index（一个更大的值）的值。发现顺序又变回来了。
+		 *这种比较是可以超越层级的，直接和父元素内的z-index进行比较。*/
+		.container0, .container1{position: relative;}
+		.container1{z-index: 1;}
+	</style>
+</head>
+<body>
+	<div class="container0"><div class="sample0">sample 0</div></div>
+	<div class="container1"><div class="sample1">sample 1</div></div>
+</body>
+</html>

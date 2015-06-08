@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位</title>
+	<style>
+		.container{width: 400px;line-height: 2;border: 1px dashed #aaa;}
+		.sample{background-color: pink;}
+		/*设置为相对定位的元素框会偏移某个距离。元素仍然保持其未定位前的形状，它原本所占的空间仍保留。
+		其起点位置为占据空间的左上角的点。
+		这个点同样可以作为position:absolute的元素的位置偏移的起始点。*/
+		.sample{position: relative;}
+		.sample{top: 20px;left: 30px;}
+		/*相对定位的元素设置margin属性并不会改变位置，而是在原有的基础上增加其位置大小*/
+		/*详细的讲解：http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html*/
+		/*.sample{margin-right: 100px;}*/
+		/*设置padding属性并没有发生变化*/
+		/*.sample{padding-right: 100px;}*/
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>相对定位元素的前序元素</div>
+		<div class="sample">sample</div>
+		<div>相对定位元素的后序元素</div>
+	</div>
+</body>
+</html>

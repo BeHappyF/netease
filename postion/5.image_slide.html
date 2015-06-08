@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>轮播头图</title>
+	<style>
+		/*最外面的父元素框设置相对定位，为子元素提供相对坐标点*/
+		.is{position: relative;width: 480px;}
+		/*将img默认的inline变成block，不明白为什么。但却是有变化，
+			如果说是默认的inline的话，之后p的绝对定位不能够定义到父元素的近邻下边框，而是会超出2个像素。*/
+		.is img{display: block;}
+		/*这里可以否认我之前的说法。定义一个bottom属性也可以让元素绝对定位。其实是默认left为零。
+			margin：0这样的话可以消除浏览器的默认样式。
+			定义line-height后，只要p内有内容，就可以将段落元素撑开。所以比较定义height属性，line-height是更好的选择。*/
+		.is .title{position: absolute;bottom: 0;margin: 0;/*left:0;*/width: 100%;line-height: 45px;background-color: #000;opacity: 0.7;}
+		/*全都是定义自身样式的属性。其他的在父元素框内就被定义了。*/
+		.is .title a{margin-left: 20px;color: #fff;text-decoration: none;}
+		.is .controls{position: absolute;bottom: 18px;right: 10px;line-height: 10px;}
+		/*border-radius只要是定义为5px以上就都是一样的样式。不知道为什么定义成10px.*/
+		.is .controls span{display: inline-block;width: 10px;margin: auto 1px;height: 10px;border-radius: 10px;background-color: gray;}
+		.is .controls span.cur{background-color: #fff;}
+		
+	</style>
+</head>
+<body>
+	<div class="is">
+	  <img src="att.jpg">
+	  <p class="title"><a href="#">老徐视线：北京潮女出门逛街不穿内衣</a></p>
+	  <div class="controls">
+	    <span></span><span class="cur"></span><span></span><span></span><span></span>
+	  </div>
+	</div>
+</body>
+</html>

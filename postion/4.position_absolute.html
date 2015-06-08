@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+	<style>
+		.container{width: 300px;margin: 50px;line-height: 2;border: 1px dashed #aaa;}
+		.sample{background-color: pink;}
+		/*定义绝对定位之后，元素脱离文档流，父元素中其后的元素占据其原有位置。
+		  此时元素的表现就像是定义z-index属性，就后来占据它位置的元素遮盖。并且元素宽度由其内容决定。
+		  而不是原来的块级元素的width:auto.*/
+		.sample{position: absolute;}
+		/*设置一对相邻而不是对称的定位属性就可以在页面中任意位置定位。
+			由于其父元素（一直追续到html）没有绝对定位或相对定位的元素。
+			所以相对定位的点变成了页面的左上角的点。即相当于html根元素定位。*/
+		.sample{bottom: 10px;left: -30px;}
+		/*父元素设置相对定位属性，于是就相对于父元素的左上角的点定位。*/
+		.container{position: relative;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>绝对定位元素的前序元素</div>
+		<div class="sample">sample</div>
+		<div>绝对定位元素的后序元素</div>
+	</div>
+</body>
+</html>
