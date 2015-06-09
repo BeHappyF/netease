@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>三行自适应布局</title>
+	<style>
+	 	/*这里当然可以通过定义固定定位来设置。这里的定位属性如top，left本来只需要一个即可。但是浏览器默认属性当中会给
+	 		body设置margin属性。所以这里如果不消除的话，那设置两个定位属性一样可以解决。*/
+		.head{position: absolute;top: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+		/*.head{position: fixed;top: 0;left:0;width: 100%;height: 100px;background-color: #ccc;}*/
+		/*overflow的默认值是visible，内容会呈现，如果内容过多，会超出父元素的边框。因为老忘记，所以又写了一遍！！*/
+		.body{position: absolute;top: 100px;left: 0;bottom: 100px;right: 0;overflow: auto;}
+		.content{height: 2000px;}
+		.foot{position: absolute;bottom: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+	</style>
+</head>
+<body>
+	<div class="head">head</div>
+	<div class="body">
+	  <div class="content">content area</div>
+	</div>
+	<div class="foot">foot</div>
+</body>
+</html>

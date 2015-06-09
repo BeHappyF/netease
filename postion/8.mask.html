@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>遮罩</title>
+	<style>
+		/*感觉这个width和height的设定与之前的解释有冲突。但其实不然。
+			之前的width设置为100%之后会占据父元素的所有content区域。但是现在明明父元素还有浏览器默认的margin属性。
+			其实，是因为已经脱离了文档流，但是设置width为100%同样会被认为是页面的整个宽度。高度同样。*/
+		.mask{position: fixed;top: 0;left: 0;z-index: 999;width: 100%;height: 100%;background-color: #000;opacity: 0.3;}
+		.content{height: 3000px;}
+	</style>
+</head>
+<body>
+	<div class="mask"></div>
+	<!-- 这里可以发现明白设了遮罩之后的内容区是无法点击的。 -->
+	<div class="content">content area<a href="#">sdfk</a></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>fixed定位</title>
+	<style>
+		.container{width: 400px;margin: 200px;line-height: 2;border: 1px dashed #aaa;}
+		.sample{background-color: pink;}
+		/*固定定位是相对于页面而言，滚动条的上下移动正文不会影响它在页面中的位置。
+		 */
+		.sample{position: fixed;}
+		/*定义一个属性也是可以的，如果这样也能满足需要的话。*/
+		/*同样可以设置border,padding,margin。且效果相同。*/
+		.sample{bottom: 0;left: 10px;/*border:1px solid red;padding: 10px;margin: 10px;*/}
+		.container{height: 1000px;}	
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>绝对定位元素的前序元素</div>
+		<div class="sample">sample</div>
+		<div>绝对定位元素的后序元素</div>
+	</div>
+</body>
+</html>
