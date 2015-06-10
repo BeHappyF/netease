@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="This is just a test.">
+	<meta name="keywords" content="netease, practice, grip">
+	<meta name="author" content="Humiliter">
+	<title>Grip</title>
+	<style>
+		.parent {width: 810px; margin:0 auto;}
+		.side, .main {line-height: 100px;text-align: center;color: #fff;}
+		.side {float: left; width: 200px; background-color: rgb(190,7,18);}
+		.main {float: right; width: 600px; background-color: rgb(83,131,185);height: 20%;}
+		.clearfix:after {content: ".";display:block;clear:both;height: 0;overflow: hidden;visibility: hidden;}
+	</style>
+</head>
+<body>
+	<div class="parent clearfix">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>
