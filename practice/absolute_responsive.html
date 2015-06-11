@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		/*决定属性的定位有两种：
+				其父级中有相对或决定定位，取最近的父级；
+				父级都没有相对或绝对定位，那么相对于body元素定位。
+			那么？有不同点吗？
+			经过测试，有的。*/
+
+		/*相对于body元素的绝对定位，起始点是浏览器左上角的点，并且这个点不会变化。
+			意味着：设置body的padding或margin属性值，起始点不会发生偏移。仍是原来的点。*/
+		/*body {
+			padding: 10px;
+			margin:10px;
+		}*/
+
+		/*相对于父级的绝对定位。
+			首先，父级为相对定位。起始点的位置与body不同，是padding区域的左上角点。
+			即如果不设置padding，相对于content-box的左上角。设置了padding就是padding区域
+			的左上角(其实这两者都是相对于padding，只不过前一种是padding:0；的特殊形式。）
+			所以设置了父级的margin属性后，起始点便发生了变化。
+			*/
+		.parent {
+			position: relative;
+			/*相对于原有位置的位移。相对于margin的左上角点。即整个盒模型的相对移动。
+			脱离文档流，但是在原有位置保留原有的总的宽高.(content+padding+border+margin)*/
+			/*top:2px;
+			left: 2px;*/
+			width: 100%;
+			/*这里还涉及一个有意思的属性：即父元素设置的margin-top属性会于起第一个子元素的margin－top合并。
+				同样地，父元素的margin-bottom会于最后一个子元素的margin-bottom相合并。
+				即取最大值。关于margin合并更详细的介绍见：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
+			*/
+			/*padding: 10px;*/
+			margin:10px;
+			background-color: red;
+			font:14px/1.5 "Microsoft YaHei", serif;
+		}
+		.side, .main {
+			/*absolute的元素同样能够正常设置margin,border,padding等属性*/
+			/*margin: 4px;*/
+			height: 400px;
+		}
+		.side {
+			width: 300px;
+			/*上下的被合并了*/
+			margin:4px;
+			background-color: green;
+		}
+		.main {
+			position:absolute;
+			left: 310px;
+			right: 0;
+			top: 0;
+			background-color: blue;
+		}
+		.clearfix:after {
+			content: ".";
+			clear: both;
+			height: 0;
+			display: block;
+			overflow: hidden;
+			visibility:hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent ">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>
