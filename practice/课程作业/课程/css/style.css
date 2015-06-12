@@ -1,0 +1,271 @@
+* {
+	margin:0;
+	padding: 0;
+}
+
+body {
+	font: 11px/1.5 "Simsoun",serif;
+	width: 760px;
+	margin: 5px auto;
+	text-align: center;
+}
+
+.clearfix:after {
+	content: ".";
+	clear: both;
+	height: 0;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+/* 总体部署完结 */
+
+header {
+	height: 60px;
+	margin-bottom: 3px;
+}
+
+header img {
+	margin-left: 5px;
+}
+.login {
+	display: inline-block;
+	width: 121px;
+	height: 60px;
+}
+
+.login table {
+	border-collapse: collapse;
+	font-size: 11px;
+}
+
+.login table td {
+	width: 60px;
+	padding: 1px;
+	border: 1px solid rgb(109,109,109);
+}
+
+.login table td a {
+	color: rgb(109,109,109);
+}
+
+.login table .caption {
+	color: #fff;
+	background-color: #777;
+}
+/* header部分完结 */
+
+nav {
+
+}
+
+nav ul li{
+	display: inline-block;
+} 
+
+nav .top ul li {
+	height: 22px;
+	line-height: 22px;
+	width: 57.2px;
+}
+
+nav .top {
+	border: 1px solid #000;
+	background-color: rgb(225,226,38);
+}
+
+nav .top ul li:first-child {
+	background-color: #000;
+	width: 156px;
+}
+
+nav .top ul li:first-child a {
+	color: #fff;
+	text-decoration: none;
+}
+
+nav .bottom ul li {
+	margin: 0 3px;
+}
+
+nav .img {
+	text-align: left;
+}
+/* nav部分完结，主要文章部分开始*/
+
+aside .hot {
+	float: left;
+	width: 156px;
+	margin-top: -5px;
+}
+
+aside .hot h3 {
+	background-color: rgb(255,124,8);
+}
+
+aside .hot h3 a {
+	color: #fff;
+}
+aside .hot p {
+	padding: 0 5px;
+	text-align: left;
+	background-color: rgb(255,233,134);
+}
+
+/* 左边栏结束，中间部分开始 */
+
+section {
+	position: relative;
+	/*background-color: red;*/
+	float: left;
+	margin: 15px 11px;
+	width: 420px;
+
+}
+
+section .search {
+}
+/*text-align对图片同样起作用*/
+section .search .img img{
+	margin: 0 20px;
+}
+
+section .search .top {
+	/*height: 50px;*/
+	border: 1px solid #777;
+	background-color: #eee;
+	text-align: left;
+}
+/*设置浮动之后必须要清理浮动，要不然浮动的元素的padding属性无法渲染出正常的值。即：padding-bottom无效了。
+	理解：其实不是padding-bottom无效了，而是所有的padding属性都失效了。因为浮动元素半脱离文档流。
+			 浮动元素设置padding或margin这样的属性偏离原来位置会导致超出父容器（废话！），
+			 最重要的是浮动的元素无法撑开父容器，那么容器的高度有其他的子元素的最大的高度决定。
+			 但是清除了浮动之后，父容器会要求包含浮动的元素，此刻浮动的元素的padding和margin就起作用了。*/
+section .search .top img {
+	/*vertical-align: center;*/
+	/*line-height: 34px;*/
+	display: block;
+	float: left;
+	padding: 7px;
+
+}
+
+section .search .top span {
+	display: inline-block;
+	width: 110px;
+	margin: 0 45px;
+	font-weight: bold;
+	font-size: 13px;
+	/*这个属性会影响父元素的高度*/
+	line-height: 22px;
+	text-align: justify;
+}
+
+section .search .bottom {
+	padding:6px;
+	border-width: 0 1px 1px;
+	border-style: solid;
+	border-color: #777;
+}
+section .search .bottom .txt {
+	margin: 2px 3px;
+	width: 240px;
+}
+/* 将img的display变成block，这样可以消除img乱起八糟的东西 ，现在还不知道img乱起八糟的东西是什么*/
+section .search .bottom img {
+	display: block;
+	float: right;
+	margin-right: 12px;
+}
+
+section .search .bottom ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+/* search部分结束，*/
+
+section .ad {
+	text-align: left;
+}
+
+section .ad .schoolSearch {
+	width: 203px;
+	margin-top: 5px;
+	
+}
+/* 这里我就是不想用&nbsp;所以用了这样方法，不过认为有更多好的方法*/
+section .ad .schoolSearch span {
+	letter-spacing: 2em;
+}
+
+section .ad .schoolSearch img {
+	display: block;
+	margin: 2px 58px;
+}
+
+section .ad .secondHand {
+	position: absolute;
+	width: 184px;
+	right: 25px;
+	bottom: 3px;
+	border-width: 0 0 0 1px;
+	border-style: solid;
+	border-color: #ccc;
+	padding-left: 8px;
+}
+
+section .ad .secondHand p.relative {
+	position: relative;
+}
+
+section .ad .secondHand .relative span {
+	/*决定定位必须是块级元素*/
+	display: block;
+	/*如果不对position设置TRBL。那么他就是脱离文档流，位置却还是原来位置。本例中他就是存在于p.relative元素中，
+		因为声明了块级元素，换行了。因为脱离文档流，所以p.relative父容器框不会包含本元素了。
+		然后声明了一个R，那么他是相对于父容器来定位的，变到了父容器的最右边。
+		但是没有定位B，所以看起来像是定位在了第二个段落元素上。其实不然，只是因为第二个段落元素占据了绝对定位元素的位置。
+		而他们恰恰是在同一水平线。
+		
+		定义了两个定位属性之后，元素就能够正确的显示。
+	*/
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+section .ad .secondHand p:last-child {
+	text-align: center;
+}
+
+/* section部分结束，右边栏开始 */
+
+aside.right {
+	border: 1px solid #777;
+	float: left;
+	width: 158px;
+	margin-top: -5px;
+}
+aside h3 {
+	background-color: #777;
+}
+
+aside .input {
+	margin: 2px;
+	width: 80px;
+}
+
+/* 右边栏结束，底部开始*/
+footer .link p{
+	margin-top: 5px;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #000;
+	background-color: rgb(251,254,226);
+}
+
+footer .about {
+	margin-top: 10px;
+}
+
