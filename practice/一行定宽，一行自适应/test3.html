@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>test</title>
+	<title>绝对和相对定位实现一行固定宽度，一行自适应</title>
 	<style>
 		/*决定属性的定位有两种：
-				其父级中有设置过position，取最近的父级；
-				父级都没有relative,absolute,fixed等定位属性，那么相对于body元素定位。
+				其父级中有相对或决定定位，取最近的父级；
+				父级都没有相对或绝对定位，那么相对于body元素定位。
 			那么？有不同点吗？
 			经过测试，有的。*/
 
@@ -29,7 +29,7 @@
 			脱离文档流，但是在原有位置保留原有的总的宽高.(content+padding+border+margin)*/
 			/*top:2px;
 			left: 2px;*/
-			width: 100%;
+			/*width: 100%;*/
 			/*这里还涉及一个有意思的属性：即父元素设置的margin-top属性会于起第一个子元素的margin－top合并。
 				同样地，父元素的margin-bottom会于最后一个子元素的margin-bottom相合并。
 				即取最大值。关于margin合并更详细的介绍见：https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin_collapsing
@@ -46,24 +46,16 @@
 		}
 		.side {
 			width: 300px;
-			/*上下的被合并了*/
+			/*上下的被父元素合并了*/
 			margin:4px;
 			background-color: green;
 		}
 		.main {
 			position:absolute;
 			left: 310px;
-			right: 0;
+			right: 4px;
 			top: 0;
 			background-color: blue;
-		}
-		.clearfix:after {
-			content: ".";
-			clear: both;
-			height: 0;
-			display: block;
-			overflow: hidden;
-			visibility:hidden;
 		}
 	</style>
 </head>

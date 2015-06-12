@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>简单的使用float实现一行固定宽度，一行自适应</title>
+    <style>
+        /*一个简单的重构之后的效果，没用的代码删了*/
+        /*.font{font:italic small-caps bold 12px/1.5em arial,verdana;}
+        	 这是一个标准的font缩写实例。*/
+        .parent {
+        	height: 200px;
+            margin: 10px;
+            font: 30px/200px "microsoft yahei", sans-serif;
+            color: white;
+            text-align:center;
+        }
+           
+        .side {
+            background: #DA0000;
+            float: left;
+            width: 200px;
+        }
+          
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;       
+            overflow: hidden;
+            visibility: hidden;
+        } 
+        /*width为默认值auto。这说明总体宽度是父元素的宽度，所以设置了margin－left之后，就能够自适应了。*/
+        .main {
+            background: #3580B7;
+            margin-left: 210px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent clearfix">
+        <div class="side">侧栏</div>
+        <div class="main">主栏</div>
+    </div>
+</body>
+</html>

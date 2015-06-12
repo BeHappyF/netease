@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex弹性盒子模型实现一行定宽，一行自适应</title>
+	<style>
+	 	 /*自己代码的重构，这回保留原来的不够精简的代码*/
+		.parent {
+			display: flex;
+			height:200px;
+			/*这个width：100%目前认为用处不大，默认属性auto能够解决大多数问题
+				所以下列的属性其实可以不设置。
+				而且，如果想让父容器有些padding或margin属性。
+				设置成width：100%就不能有满意的效果了。*/
+			/*width: 100%;*/
+			margin: 10px;
+			font: 30px/200px Georgia, sans-serif;
+			color: #fff;
+			text-align: center;
+			background-color: red;
+		}
+		.side, .main {
+			/*因为有一个是float元素，外边距没有合并，所以两者中间的外边距为两倍，即16px。*/
+			margin: 8px;
+			/*这个值还是写在父元素的样式比较好*/
+			/*height: 400px;*/
+		}
+		.side {
+			/*完全没有必要设置float属性*/
+			/*float:left;*/
+			width: 200px;
+			background-color:blue;
+		}
+		/*有一点不明白，就是为什么设置了flex-grow的元素的右边距为16px.而不是8px.
+
+			然而把clearfix:after的属性一注释掉，右边距就是8px了。
+			现在大概明白了：由于在父容器最后加入一个空元素用来消除浮动，
+			main的margin-right和空元素的margin-left合并，然后加上空元素的margin-right.
+
+			但是问题又来了？为什么空元素的margin为8px。暂时不知道。。。*/
+		.main {
+			flex-grow:1;
+			background-color: green;
+		}
+		/*一种比较常用的消除浮动的方法，要记住！*/
+		.clearfix:after {
+			content: ".";
+			height: 0;
+			clear: both;
+			display: block;
+			overflow: hidden;
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent clearfix">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>
