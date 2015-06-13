@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误的示范</title>
+	<style>	
+	/*这种办法归类于炫技，本身并无大作用。本身脱胎于基础的几种方法。
+
+		这种办法完全可以将flex相关的属性删除，效果是相同的。*/
+		.parent{
+    display: flex;
+    position: relative;    
+	}
+	/*这种办法里面使用相对定位*/
+	.side{
+	    position: absolute;
+	    width: 200px;
+	    background-color: #C00000;
+	}
+	.main{
+	    flex: 1;
+	    margin-left: 210px;
+	   background-color: #4F81BD; 
+	}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>
