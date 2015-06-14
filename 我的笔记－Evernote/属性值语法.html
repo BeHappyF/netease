@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.0.13 (451658)"/><meta name="altitude" content="155.5761566162109"/><meta name="author" content="2809150899@qq.com"/><meta name="created" content="2015-06-13 14:06:29 +0000"/><meta name="latitude" content="45.74244131429842"/><meta name="longitude" content="126.627602978605"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2015-06-13 15:13:53 +0000"/><title>属性值语法</title></head><body lang="">
+<div><br/></div>
+<div>简单的例子：</div>
+<div>margin:[&lt;length&gt;|&lt;percentage&gt;|auto]{1,4}</div>
+<div><br/></div>
+<div>     基本元素</div>
+<div>     length  percentage  auto</div>
+<div><br/></div>
+<div>     组合符号</div>
+<div>     ［］  ｜</div>
+<div><br/></div>
+<div>     数量符号</div>
+<div>     ｛1，4｝</div>
+<div><br/></div>
+<div>基本元素</div>
+<div>     关键字</div>
+<div>          －auto，solid，bold...</div>
+<div>     类型</div>
+<div>          －基本类型(&lt;length&gt;,&lt;percentage&gt;,&lt;color&gt;...)</div>
+<div>          －其他类型(&lt; ‘padding-width’ &gt;,&lt;color-stop&gt;…)</div>
+<div>     符号（/,)</div>
+<div>          －inherit, initial</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>组合符号</b></span></div>
+<div><br/></div>
+<table style="-evernote-table:true;border-collapse:collapse;margin-left:0px;table-layout:fixed;width:100%;">
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20.59447983014862%;">
+<div>类型</div>
+</td>
+<td style="border: 1px solid rgb(219, 219, 219); padding: 10px; margin: 0px;width:20.169851380042463%;">案例</td>
+<td style="border: 1px solid rgb(219, 219, 219); padding: 10px; margin: 0px;width:19.957537154989385%;">
+<div>释义</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.745222929936308%;">
+<div>合法值</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.32059447983015%;">
+<div>不合法值</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>空格</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;‘font-size&gt; &lt;‘font-family’&gt;</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">表示这两个基本属性必须都出现，顺序从左到右。</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-12px arial</div>
+<div><br/></div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-3em</div>
+<div>-arial 32px</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&amp;&amp;</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;length&gt;&amp;&amp;&lt;color&gt;</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>两个属性都要出现，顺序没有先后</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-green 2px</div>
+<div>-1em blue</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-blue</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>||</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>underline||overline||line-through||blink</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>至少出现一个，顺序没有先后</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-underline</div>
+<div>-overline underline</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>／</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>｜</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;color&gt;|transparent</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>两个只能出现一个</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-orange</div>
+<div>transparent</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-blue transparent</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>[]</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>bold[thin||&lt;length&gt;]</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>里面的内容看作整体，进行组合计算后再与外面的进一步组合</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-bold thin</div>
+<div>-bold 2em</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>／</div>
+</td>
+</tr>
+</table>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>数量符号</b></span></div>
+<div><br/></div>
+<div><br/></div>
+<table style="-evernote-table:true;border-collapse:collapse;table-layout:fixed;margin-left:0px;width:100%;">
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20.169851380042463%;">
+<div>类型</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.957537154989385%;">
+<div>实例</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.957537154989385%;">
+<div>释义</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.957537154989385%;">
+<div>合法值</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:19.745222929936308%;">
+<div>不合法值</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>无</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;length&gt;</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>只能出现一次</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-1px</div>
+<div>-10em</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>／</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>+</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;color-stop&gt;[,&lt;color-stop]+</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>可以出现一次或多次</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-#fff,red</div>
+<div>-blue,green 50%,gray</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">-red</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>?</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>inset?&amp;&amp;&lt;color&gt;</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>可以出现也可不出现</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-inset blue</div>
+<div>-red</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>／</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>{}</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;length&gt;{2,4}</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>指明出现的最少和最多的次数</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-1px 2px</div>
+<div>-1px 2px 3px</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-1px</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>*</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;time&gt;[,&lt;time&gt;]*</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>可以出现零次，一次火多次</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-1s</div>
+<div>-1s,3s</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>／</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>＃</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>&lt;time&gt;#</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>出现一次或多次，用逗号分隔</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-2s,3s</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:20%;">
+<div>-2s 3s</div>
+</td>
+</tr>
+</table>
+<div><br/></div>
+<div><br/></div>
+<div>
+<div><br/></div>
+</div>
+<div>实例：</div>
+<div>       box-shadow:[inset?&amp;&amp;[&lt;length&gt;{2,4}&lt;color&gt;?]]#|none</div>
+<div>合法：</div>
+<div>     box-shadow:3px 3px rgb(40% 30% 20%), red 0 0 4px inset;</div>
+<div><br/></div>
+<div><br/></div>
+<div>@规则</div>
+<div><br/></div>
+<div>@media          //查询媒体，响应式</div>
+<div>@keyframes   //css3中描述动画中的中间步骤</div>
+<div>@font-face     //引入外部字体</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+</body></html>
