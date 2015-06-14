@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>white-space</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+p{margin:10px;background:#ddd;}
+/*会将有空格的地方全部转换为只有一个空格，换行和tab也转换为一个空格，多种的组合同样如此*/
+.m-demo .p1{white-space:normal;}
+/*所有的空格，换行tab将被保留*/
+.m-demo .p2{white-space:pre;}
+/*暂时没有发现区别*/
+.m-demo .p3{white-space:pre-wrap;}
+/*tab被忽略，换行被保留，多个空格只留一个*/
+.m-demo .p4{white-space:pre-line;}
+/*禁止换行，换行、tab的效果等价于一个空格，多个空格只留一个*/
+.m-demo .p5{white-space:nowrap;}
+.m-demo .p6{white-space:pre-wrap;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+	<p class="p1">white-space:normal; 左边1个空格  左边2个空格   左边3个空格
+左边一个换行
+	左边一个换行加一个Tab</p>
+	<p class="p2">white-space:pre; 左边1个空格  左边2个空格   左边3个空格
+左边一个换行
+	左边一个换行加一个Tab</p>
+	<p class="p3">white-space:pre-wrap; 左边1个空格  左边2个空格   左边3个空格
+左边一个换行
+	左边一个换行加一个Tab</p>
+	<p class="p4">white-space:pre-line; 左边1个空格  左边2个空格   左边3个空格
+左边一个换行
+	左边一个换行加一个Tab</p>
+	<p class="p5">white-space:nowrap; 左边1个空格  左边2个空格   左边3个空格
+左边一个换行
+	左边一个换行加一个Tab</p>
+
+	<p class="p6">
+	.m-demo .p6{
+	    text-indent: 2em;
+	}
+	</p>
+</div>
+</body>
+</html>

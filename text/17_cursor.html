@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>cursor</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+p{margin:10px;background:#ddd;}
+/*更为详细的内容链接：http://www.w3school.com.cn/cssref/pr_class_cursor.asp*/
+
+/*会自由的根据情况切换*/
+.m-demo .p1{cursor:auto;}
+/*默认光标（通常是一个箭头）*/
+.m-demo .p2{cursor:default;}
+/*呈现出指示链接的指针（一只手）*/
+.m-demo .p3{cursor:pointer;}
+/*指示可用的帮助*/
+.m-demo .p4{cursor:help;}
+/*表示某物体可被移动*/
+.m-demo .p5{cursor:move;}
+/*光标消失*/
+.m-demo .p6{cursor:none;}
+/*自定义光标样式，逗号隔开表示多个可选样式，即：如果没有链接到自定义的光标样式，
+则会依次采用后续的光标样式*/
+.m-demo .p7{cursor:url(cur.cur),pointer;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+	<p class="p1">指针：cursor:auto;</p>
+	<p class="p2">指针：cursor:default;</p>
+	<p class="p3">指针：cursor:pointer;</p>
+	<p class="p4">指针：cursor:help;</p>
+	<p class="p5">指针：cursor:move;</p>
+	<p class="p6">指针：cursor:none;</p>
+	<p class="p7">指针：cursor:url(cur.cur),pointer;</p>
+</div>
+</body>
+</html>

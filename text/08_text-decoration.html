@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>text-decoration</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+p{margin:10px;background:#ddd;}
+/*underline  		下划线
+  overline   		上划线
+  line-through  删除线
+  none          什么也没有
+  blank         定义闪烁的文字，很少用*/
+.m-demo .p1{text-decoration:underline;}
+/*可同时设置多条线*/
+.m-demo .p2{text-decoration:underline overline;}
+.m-demo .p3{text-decoration:line-through;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+	<p class="p1">text-decoration:underline;</p>
+	<p class="p2">text-decoration:underline overline;</p>
+	<p class="p3">text-decoration:line-through;</p>
+</div>
+</body>
+</html>

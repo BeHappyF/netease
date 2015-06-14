@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>word-wrap</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+p{margin:10px;padding:0 10px;background:#ddd;}
+/*normal为默认属性，单个过长的单词会造成脱离父元素*/
+.m-demo .p1{word-wrap:normal;}
+/*遇到单个过长的单词，会首先另起一行，然后判断一行的距离是否能够容纳这个单词，如果不能，则会截断这个单词到下一行*/
+.m-demo .p2{word-wrap:break-word;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+	<p class="p1">Hello World Hello World Hello World Hello World
+	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	Hello World Hello World Hello World Hello World
+	</p>
+	<p class="p2">Hello World Hello World Hello World Hello World
+	xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	Hello World Hello World Hello World Hello World
+	</p>
+</div>
+</body>
+</html>

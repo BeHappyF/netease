@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<title>轮播头图</title>
 	<style>
+		* {margin: 0;padding: 0;}
 		/*最外面的父元素框设置相对定位，为子元素提供相对坐标点*/
 		.is{position: relative;width: 480px;}
 		/*将img默认的inline变成block，不明白为什么。但却是有变化，
 			如果说是默认的inline的话，之后p的绝对定位不能够定义到父元素的近邻下边框，而是会超出2个像素。*/
-		.is img{display: block;}
+		/*.is img{display: block;}*/
 		/*这里可以否认我之前的说法。定义一个bottom属性也可以让元素绝对定位。其实是默认left为零。
 			margin：0这样的话可以消除浏览器的默认样式。
 			定义line-height后，只要p内有内容，就可以将段落元素撑开。所以比较定义height属性，line-height是更好的选择。*/

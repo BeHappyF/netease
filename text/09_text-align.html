@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>text-align</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+/*word-wrap 是用来决定允不允许单词内断句的，如果不允许的话长单词就会溢出。
+最重要的一点是它还是会首先挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句。
+设置word-wrap:break-word*/
+/*word-break:break-all则更变态，因为它不会尝试把长单词挪到下一行，而是直接进行单词内的断句。*/
+p{margin:10px;background:#ddd;word-break:break-all;}
+p+p{margin-left:40px;}
+
+.m-demo{text-align:left;}
+.m-demo .p1{text-align:right;}
+.m-demo .p2{text-align:center;}
+/*两端对齐文本。但是这不是有css决定的。
+而是由用户代理来确定两端对齐文本如何拉伸，以填满父元素左右边界之间的空间。
+CSS 规范特别指出，如果 letter-spacing 属性指定为一个长度值，“用户代理不能进一步增加或减少字符间的空间”
+所以代码实例当中并没有看到相印的变化。*/
+.m-demo .p3{text-align:justify;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+	<p>文本对齐：text-align: left;</p>
+	<p class="p1">文本对齐：text-align: right;</p>
+	<p class="p2">文本对齐：text-align: center;</p>
+	<p class="p3">文本对齐：text-align: justify;</p>
+</div>
+</body>
+</html>
