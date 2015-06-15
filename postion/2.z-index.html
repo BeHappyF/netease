@@ -14,8 +14,10 @@
 		 *当然这个值必须大于零*/
 		.sample0{z-index: 2;}
 
-		/*通过改变两个块级元素的父元素的z-index（一个更大的值）的值。发现顺序又变回来了。
-		 *这种比较是可以超越层级的，直接和父元素内的z-index进行比较。*/
+		/*这个例子当中看起来会是sample1在上方，虽然没有设置z-index，默认为0。但是其父容器的z-index更大。
+			但结果相反，sample0在上方。
+			原因：z-index只有在position:absolute；的情况下才有用。所以父容器设置了相对定位之后，他们设置的
+			z-index属性是无效的。所以只比较子元素的z-index值。结果显而易见。*/
 		.container0, .container1{position: relative;}
 		.container1{z-index: 1;}
 	</style>
