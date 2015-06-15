@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>box-sizing</title>
+<style type="text/css">
+	/* box-sizing默认值为content-box；定义：宽度和高度的设置分别应用在元素的内容框。在宽度和高度之外绘制元素的内边距和边框 
+		 即：    width,height     for         content-box*/
+	div{width: 260px;height: 260px;padding: 30px;background-color: pink;border: 5px solid blue;}
+	/* 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+		 通过从已设定的宽度和高度分别建区边框和内边距才能得到内容的宽高。
+		 即：    width,height     for         content-box + padding + border*/
+	.sample1{box-sizing: border-box;}
+</style>
+</head>
+<body>
+	<!-- 这个div的宽高都是330px -->
+	<div class="sample0">
+		width: 260px;<br>
+		height: 260px;<br>
+		padding: 30px;<br>	
+		border: 5px solid blue;<br>
+		box-sizing: content-box;
+	</div>
+	<br>
+	<!-- div宽高都是260px  -->
+	<div class="sample1">
+		width: 260px;<br>
+		height: 260px;<br>
+		padding: 30px;<br>
+		border: 5px solid blue;<br>
+		box-sizing: border-box;
+	</div>
+</body>
+</html>

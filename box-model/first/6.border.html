@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>border</title>
+<style type="text/css">
+	div{width: 150px;height: 150px;background-color: pink;}
+
+	.sample0{border: 1px dashed blue;}
+	.sample1{
+		/*border-width的宽度设置同样是上－右－下－左的顺序*/
+		border-width: 0 1px 2px 3px;
+		/*solid：实线
+			dashed: 虚线
+			dotted: 点状线*/
+		border-style: solid;
+		border-color: #0ff;
+	}
+	.sample2{border-style: dotted;}
+	.sample2{color: red;}
+	/*只设置一边的属性也是可以的*/
+	.sample3{border-top: 5px solid green;}
+</style>
+</head>
+<body>
+	<div class="sample0">sample</div>
+	<br>
+	<div class="sample1">sample</div>
+	<br>
+	<div class="sample2">sample</div>
+	<br>
+	<div class="sample3">sample</div>
+</body>
+</html>

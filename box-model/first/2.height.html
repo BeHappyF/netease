@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>height</title>
+<style type="text/css">
+div, span{background-color: pink;}
+/* 注解见1.width.html */
+/*.sample{height: 100px;}*/
+/*这是一个比较有意思的地方：在块级元素的width定义中，因为父容器默认auto的属性会是浏览器宽度。所以50%设置之后，长度变为原来的一半。
+同时样块级元素，因为父容器body默认高度为内容高度。所以50%的父容器高度反而不够内容显示，这条语句会被忽视。在将父容器的高度设置为页面的100%高度时，这是的这条语句便能够起作用了。*/
+.sample{height: 50%;} 
+html,body{height: 100%;}
+/*span{height: 200px;}*/
+</style>
+</head>
+<body>
+	<div class="sample">sample</div>
+	<br>
+	<span>inline</span>
+</body>
+</html>

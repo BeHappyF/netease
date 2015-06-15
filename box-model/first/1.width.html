@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>width</title>
+<style type="text/css">
+div, span{background-color: pink;}
+/*block元素可以设置width,height属性，width默认值是其父元素的宽度，height则是其内容决定*/
+.sample{width: 200px;}
+/*width属性可以设置百分比，相对于其父元素*/
+.sample{width: 50%;}
+/*inline元素不可以设置width,height属性，设置之后没有作用*/
+span{width: 200px;}
+</style>
+</head>
+<body>
+	<div class="sample">sample</div>
+	<br>
+	<span>inline</span>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>size</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+	/* 这里设置line-height的作用相当于：设置了父元素的高度，将字体垂直方向上居中。 */
+	div{margin: 30px;width: 200px;line-height: 200px;text-align: center;background-color: pink;}
+	.sample0{border-radius: 10px;}
+	/* 设置的方式为：前面的四个值依次表示上左－上右－下右－下左四个角的圆心在水平方向上离边框的距离。
+		 同理，“／”分割后符后面的元素则是相应的离垂直方向上的离边框的距离。*/
+	.sample1{border-radius: 0 10px 20px 30px/40px 30px 20px 10px;}
+	/* 百分值相对于父元素，所以每个角的圆心刚好位于父元素的中心，最后刚好形成一个圆形。*/
+	.sample2{border-radius: 50%;}
+	/* 同样可以单独的设置一个角的形状，注意它的写法是border-top-left-radius,反过来就无效。
+		 同理：类似的还有 border-top-right-radius
+		 								border-bottom-right-radius
+		 								border-bottom-left-radius*/
+	.sample3{border-top-left-radius: 10px;}
+	/*border-radius生效的区域包括content-box和padding，但是以百分比的设置半径宽度，同样是是以他们的和作为100%的值。*/
+	.sample4{padding: 10px;border-radius: 50%;}
+</style>
+</head>
+<body>
+	<div class="sample0">sample</div>
+	<div class="sample1">sample</div>
+	<div class="sample2">sample</div>
+	<div class="sample3">sample</div>
+	<div class="sample4">sample</div>
+</body>
+</html>

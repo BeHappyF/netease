@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>outline</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+	.sample{width: 250px;line-height: 250px;text-align: center;background-color: pink;}
+	/* outline呈现在border边框之外，不占空间。也不一定是矩形。
+	属性设置方式与border类似。而且，其中某个值不设置也没有问题。
+	如：outline:dashed blue;*/
+	.sample{outline: 5px dashed blue;}
+	.sample{border: 3px solid #0ff;}
+</style>
+</head>
+<body>
+	before outline
+	<div class="sample">outline: 5px dashed blue;</div>
+</body>
+</html>
