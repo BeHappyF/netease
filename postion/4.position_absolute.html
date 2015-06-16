@@ -16,13 +16,19 @@
 		.sample{bottom: 10px;left: -30px;}
 		/*父元素设置相对定位属性，于是就相对于父元素的左上角的点定位。*/
 		.container{position: relative;}
+		/*绝对定位如果相对于html根元素定位，他的效果很有趣：我本想既然是相对于根元素，那么如果设置一个高度
+			足够使得生成滚动条的html，那么一开始的位置，绝对定位元素会不会消失（因为在html的底部）。
+			结果不然。页面刷新的效果就像是固定定位的元素一样，但是拖动滚动条之后，绝对定位的元素是会随着动的。
+
+			所以说：相对于根元素和页面是不一样的。*/
+		/*.special {height: 500px;}*/
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div>绝对定位元素的前序元素</div>
+		<div class="special">绝对定位元素的前序元素</div>
 		<div class="sample">sample</div>
-		<div>绝对定位元素的后序元素</div>
+		<div class="special">绝对定位元素的后序元素</div>
 	</div>
 </body>
 </html>
