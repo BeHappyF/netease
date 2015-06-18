@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>order</title>
+	<style>
+		.container{float: left;background-color: #963297;}
+		.item{margin: 10px;width: 100px;line-height: 40px;text-align: center;color: #fff;font-size: 20px;background-color: #c99702;}
+		
+		.container{display: flex;}
+		/*order的值必须是整数。默认值为0.越大会使元素在弹性盒子中的排序越靠后。*/
+		.item2{order: 1;}
+		.item1{order: 10;}
+		.item3{order: -1;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 如果不设置display:flex;然后div内也不没有内容的话，整个块级元素就会消失。
+				 二如果设置了display:flex；即使没有内容，块级元素依然能够正常的撑开。 -->
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		.container {margin: 20px; font-size: 20px;background-color: #963297; color: #fff;}
+		.item {line-height: 40px;text-align: center;background-color: #c99702;margin: 10px;}
+		.container0 .item, .container1 .item { width:40px;margin: 10px 10px;}
+		.container {display: flex;}
+		.container1 {flex-direction: row-reverse;}
+		.container2 {flex-direction: column;}
+		.container3 {flex-direction: column-reverse;}
+	</style>
+</head>
+<body>
+	<div class="container container0">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+	<div class="container container1">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+	<div class="container container2">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+	<div class="container container3">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>justity-content</title>
+	<style>
+		.container{margin: 20px;line-height: 40px;font-size: 20px;color: #fff;background-color: #963297;}
+		.item{margin: 10px;width: 100px;line-height: 40px;text-align: center;background-color: #c99702;}
+
+		
+		.container{display: flex;}
+		/*字面意思：对齐的内容开始的位置。*/
+		.fs{justify-content: flex-start;}
+		.fe{justify-content: flex-end;}
+		.c{justify-content: center;}
+		/*元素之间有空白隔开，两端紧贴。*/
+		.sb{justify-content: space-between;}
+		/*元素之间空白隔开，两端同样有空白。中间元素隔开的宽度是两端的两倍。*/
+		.sa{justify-content: space-around;}
+		/*纵向同样遵循上述效果*/
+		/*.container{flex-flow: column;width: 120px;height: 300px;}*/
+	</style>
+</head>
+<body>
+	<div class="container fs">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+	<div class="container fe">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+	<div class="container c">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+	<div class="container sb">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+	<div class="container sa">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+</body>
+</html>

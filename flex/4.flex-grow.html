@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>flex-grow</title>
+	<style>
+		.container{background-color: #963297;}
+		.item{margin: 10px;line-height: 40px;text-align: center;color: #fff;font-size: 20px;background-color: #c99702;}
+
+		.container{display: flex;}
+		/*也可用padding达到相同个视觉效果。*/
+		.item{width: 100px;}
+		/*设置或检索弹性盒伸缩基准值。设置之后width被覆盖，而不会叠加。*/
+		.item2{flex-basis: 300px;}
+		/*根据弹性盒子元素所设置的扩展因子作为比率来分配剩余空间。*/
+		/*.item2{flex-grow: 1;}*/
+		/*.item3{flex-grow: 2;}*/
+		/*如果所有子元素的基准值之和大于剩余空间，则会根据每项设置的基准值，按比率伸缩剩余空间*/
+		/*定义如下属性之后，item2和item3的宽度比就是1:2.所以说width:100px被覆盖了。*/
+		/*.item2, .item3{flex-basis: 0;}*/
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <div class="item item1">1</div>
+	  <div class="item item2">2</div>
+	  <div class="item item3">3</div>
+	</div>
+</body>
+</html>

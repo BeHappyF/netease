@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>flex-shink</title>
+	<style>
+		.container{width: 600px;background-color: #963297;}
+		.item{margin: 10px;line-height: 40px;text-align: center;color: #fff;font-size: 20px;background-color: #c99702;}
+
+		.container{display: flex;}
+		/*flex-shrink的默认值为1.根据弹性盒子元素所设置的收缩因子作为比率来收缩空间。
+			定义子元素超出父容器区域大小的各元素的收缩比例。*/
+		/*本来都默认1，然后显式地定义为0，就是说超出的部分都不在按比例分配给各个子元素使其收缩，满足不超出父容器的目的。
+		 	所以定义以下属性之后，子元素就超出了父容器边界。*/
+		.item{flex-shrink: 0;}
+		/*然后又定义某个子元素的比例系数，其实这个值只要大于1就行。反正都是这个子元素承担所有的收缩。
+			而因为是弹性容器，收缩宽度的同时，会扩大其高度。*/
+		.item2{flex-shrink: 1;}
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <div class="item item1">sets the flex shrink factor</div>
+	  <div class="item item2">sets the flex shrink factor</div>
+	  <div class="item item3">sets the flex shrink factor</div>
+	</div>
+</body>
+</html>

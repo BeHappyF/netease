@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>flex wrap</title>
+	<style>
+		.container{width: 400px;margin: 20px;line-height: 40px;font-size: 20px;color: #fff;background-color: #963297;}
+		/*有意思的地方：这里的margin属性会叠加。而不是所谓的相邻的margin取最大值。*/
+		.item{margin: 10px;width: 100px;line-height: 40px;text-align: center;background-color: #c99702;}
+
+		.container{display: flex;}
+		/*flex-wrap适用于弹性盒模型。*/
+		.container1{flex-wrap: wrap;}
+		.container2{flex-wrap: wrap-reverse;}
+	</style>
+</head>
+<body>
+	<!-- flex-wrap默认值为nowrap.当子元素溢出父容器时不换行。
+				所以这里的方式是通过减少每个单元的width。
+				有意思的是，这里的margin同样是叠加的。 -->
+	<div class="container container0">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	  <div class="item">4</div>
+	  <div class="item">5</div>
+	</div>
+	<!-- wrap,当子元素溢出父容器时自动换行。且父容器的空余都是在最右边。 -->
+	<div class="container container1">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	  <div class="item">4</div>
+	  <div class="item">5</div>
+	</div>
+	<!-- wrap-reverse。反转wrap序列。 -->
+	<div class="container container2">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	  <div class="item">4</div>
+	  <div class="item">5</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>flex direction</title>
+	<style>
+		/*这个line-height设置没有作用，因为肯定会被后来的line-height覆盖。*/
+		.container{margin: 20px;/*line-height: 40px;*/font-size: 20px;color: #fff;background-color: #963297;}
+		/*margin属性将内部的div与父元素边界隔离。line-height则是将内部的元素高度撑开。*/
+		.item{margin: 10px;line-height: 40px;text-align: center;background-color: #c99702;}
+		/*这里通过padding值将内部元素宽度撑开，同样的，可以通过设置width属性（content）撑开。效果能够达到一致，但是还是有不同。*/
+		.container0 .item, .container1 .item{padding: 0 12px;}
+
+		.container{display: flex;}
+		/*可以推测出flex-direction为row.*/
+		.container1{flex-direction: row-reverse;}
+		.container2{flex-direction: column}
+		.container3{flex-direction: column-reverse}
+	</style>
+</head>
+<body>
+	<div class="container container0">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	</div>
+	<div class="container container1">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	</div>
+	<div class="container container2">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	</div>
+	<div class="container container3">
+	  <div class="item">1</div>
+	  <div class="item">2</div>
+	  <div class="item">3</div>
+	</div>
+</body>
+</html>
