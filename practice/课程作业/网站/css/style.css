@@ -1,0 +1,272 @@
+@font-face {
+	font-family: serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 14px/1.5 "Simsun",sans-serif;
+		background-color: rgb(235,235,235);
+}
+a {
+	text-decoration: none;
+	color:black;
+}
+
+.clearfix::after {
+	content: ".";
+	clear: both;
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+header {
+	height: 250px;
+	width: 100%;
+	background: url(../img/bg.jpg) no-repeat center;
+}
+
+header h1 {
+	text-align: center;
+	font: 48px/250px sans-serif;
+	color: #444;
+}
+
+nav {
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 5px solid rgb(223,223,223);
+}
+
+nav ul {
+	width: 600px;
+	margin: 0 auto;
+}
+
+nav ul li {
+	width: 100px;
+	height: 60px;
+	margin: 0 5px;
+	display: inline-block;
+	text-align: center;
+  line-height: 60px;
+}
+
+
+
+nav ul li a {
+	color: #333;
+}
+
+
+.content {
+	text-align: left;
+}
+
+.container {
+	width: 1000px;
+	margin: 25px auto;
+}
+/*使用了float的元素，其外边距不会被合并*/
+.container .main {
+	width: 670px;
+	float: left;
+	/*margin-right: 30px;*/
+}
+
+.container .main article {
+	position: relative;
+	background-color: #fff;
+	margin-bottom:25px;
+	padding: 25px;
+}
+
+.container .main article .title {
+	text-align: center;
+	font: 30px/70px "microsoft yahei",serif;
+}
+
+.container .main article .author {
+	text-align: center;
+	color: #888;
+}
+
+.container .main article .author a {
+	font-size: 16px;
+	color: green;
+}
+
+.container .main article .content {
+	padding:30px 0;
+}
+
+.container .main article .link span {
+	display: inline-block;
+	background-color: #a0cd75;
+	width: 100px;
+	height: 30px;
+	border-radius: 3px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.container .main article .link span a {
+	color: #fff;
+}
+
+.container .main article .footer {
+	margin-top: 30px;
+	border-top: 1px solid #eee;
+	padding-top: 21px;
+}
+
+.container .main article .icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(../img/sprite.jpg) no-repeat 0 0;
+	line-height: 0;
+}
+
+.container .main article .img img{
+	display: block;
+	width: 620px;
+	height: 300px;
+
+}
+
+.container .main article .footer span {
+	display: inline-block;
+	width: 15px;
+	height: 11px;
+	background: url(../img/icon.png) no-repeat 0 0;
+}
+
+.container .main article .footer a {
+	padding-left: 10px;
+}
+
+.container .main .turn {
+	text-align: center;
+}
+
+.container .main .turn span {
+	display: inline-block;
+	padding: 5px 13px;
+	background-color: #a0cd75;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.container .main .turn span a {
+	color: #fff;
+}
+/*这里同样利用到了float元素不能够合并外边距的内容*/
+.container aside {
+	/*float: right;*/
+	margin: 25px 0 25px 710px;
+	/*width: 300px;*/
+}
+.container aside .widget {
+	background-color: #fff;
+	margin-bottom: 25px;
+	padding: 21px 30px;
+}
+
+.container aside .title {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+}
+
+.container aside .content p {
+	margin-bottom: 10px;
+}
+
+.container aside .conn img {
+	display: inline-block;
+	width: 230px;
+}
+
+.container aside .tag-cloud a {
+	display: inline-block;
+	padding: 1px 7px;
+	border: 1px solid #eee;
+	margin: 2px;
+	color: #999;
+}
+
+footer {
+	background-color: rgb(36,36,36);
+}
+footer .container {
+	width: 900px;
+	margin: 0 auto;
+	color: #fff;
+}
+
+footer .container .widget {
+	float: left;
+	width: 250px;
+	margin: 30px 50px 30px 0;
+
+}
+
+footer .container .title {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #333;
+	margin-bottom: 20px;
+}
+footer .container a {
+	display: inline-block;
+	color: #999;
+	padding: 1px 7px;
+	border: 1px solid #333;
+	margin-bottom: 5px;
+}
+
+footer .container .hot section {
+	padding: 10px 0;
+	border-bottom: 1px dashed #333;
+}
+
+footer .container .hot section .head {
+	color: #999;
+}
+
+footer .container .hot section .pubTime {
+	color: #555;
+}
+
+footer .container .redirecting section {
+	padding: 18px;
+	border-bottom: 1px dashed #333;
+}
+/*搜索框需要好好做*/
+/*footer .container .redirecting .search .input{
+	width: 200px;
+	background-color: #333;
+}*/
+
+footer .container .redirecting .search button {
+	border-radius: 2px;
+}
+.copyright {
+	text-align: center;
+	line-height: 70px;
+	background-color: #000;
+	color: #aaa;
+}
+
+.copyright a {
+	color: #aaa;
+	padding: 0 2px;
+}
+
+
+
+
