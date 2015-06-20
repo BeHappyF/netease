@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>perspective-origin</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+/*把perspective-origin属性注释掉未发生变化，是因为其默认值就是中点。改变其值，会发生有意思的变化。*/
+.m-demo-1{perspective:2000px;perspective-origin:50% 50%;}
+/*rotateZ()的轴垂直于页面平面。所以单独定义此属性，和二维的变化有相同的效果。但是区别在于，二维的旋转会导致x,y轴的旋转，而三维的旋转则是轴不动的旋转方式。*/
+.m-demo-1 pre{transform:rotateZ(45deg);}
+</style>
+</head>
+<body>
+<div class="m-demo m-demo-1">
+    <pre></pre>
+</div>
+</body>
+</html>

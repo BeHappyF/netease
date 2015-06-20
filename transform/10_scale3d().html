@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>scale3d()</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+.m-demo{perspective:2000px;}
+/*用数字表示伸缩值，默认值为1。z轴的伸缩比较麻烦。
+在普通的scaleZ()或scale3d()设置都不会有什么变化。但肯定是有效果的。不过需要配合其他的属性同时使用。
+
+我的理解：因为scale3d()是三维空间的伸缩，x,y轴的话，二维和三维是没有区别的，因为他们在二维和三维的空间内同样具有宽度。而在三维空间中，如果设置了z轴上的伸缩，不作其他变化。会因为没有z轴上没有宽度而不发生变化。但如果将图形在三维空间旋转一定角度，那么他就会发生伸缩了。在页面中也变得有实际效果。*/
+.m-demo-1 pre{transform:scale3d(1.2,1.2,5);}
+.m-demo-1 pre{transform:scale3d(1.2,1.2,5) rotateX(45deg);}
+</style>
+</head>
+<body>
+<div class="m-demo m-demo-1">
+    <pre></pre>
+</div>
+</body>
+</html>

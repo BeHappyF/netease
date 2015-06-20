@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>multiple transform</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+/*transform可定义多个变形的属性，不过变换位置会有不同效果。*/
+.m-demo-1 pre{transform:translate(50%) rotate(45deg);}
+/*从这个实例可以看出来物体的移动是按照自身坐标系，旋转之后，这个坐标系同样会改变。*/
+.m-demo-1 pre{transform:rotate(45deg) translate(50%);}
+</style>
+</head>
+<body>
+<div class="m-demo m-demo-1">
+    <pre></pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>perspective</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+/*绕y,z轴的旋转时立体的，当然不是说绕x轴就不是。x轴同样是，只不过刚好和页面平行，所以像是二维的。但是y轴的旋转在单独的设置下，只会有二维的效果。但是如果加了透视属性。就可以看出三维的效果了。*/
+/*rotateX(),rotateY(),rotateZ()和rotate3d()是定义在三维空间下的翻转。*/
+.m-demo-1 pre{transform:rotateY(45deg);rotate}
+/*这个透视属性定义消失点距离页面的距离。值越小，效果越明显。*/
+.m-demo-1{perspective:2000px;}
+</style>
+</head>
+<body>
+<div class="m-demo m-demo-1">
+    <pre></pre>
+</div>
+</body>
+</html>

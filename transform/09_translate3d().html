@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>translate3d()</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+.m-demo{perspective:2000px;}
+/*百分比相对于父容器宽度，z轴的移动是在垂直页面平面上的变化，正值为靠近观众的方向。当然z轴的变化只有在设置了透视属性之后的效果。没有设置就好像消失点是在距屏幕无尽远处。看不出z轴上的变化。*/
+.m-demo-1 pre{transform:translate3d(1px,20%,200px);}
+</style>
+</head>
+<body>
+<div class="m-demo m-demo-1">
+    <pre></pre>
+</div>
+</body>
+</html>
