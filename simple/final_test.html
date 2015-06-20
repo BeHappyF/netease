@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		/*.a {
+			position: relative;
+			width:100px; 
+			padding:10px; 
+			border:2px solid #000;
+		}
+		.b {
+			position:absolute; left:0; right:0;
+			background-color: red;
+		}*/
+		/*.a  {
+			width: 200px;
+			height: 100px;
+		}
+		.b {
+			padding: 20%;
+			background-color: red;
+		}*/
+
+		/** {
+			color: red;
+		}
+		.parent p:last-child {
+			color: blue;
+		}
+		.b.c {color: green;}*/
+
+		ul li:first-child p {
+			color: red;
+		}
+		ul li.li p {
+			color: blue;
+		}
+		.ul li .p {
+			color: green;
+		}
+		ul>li>p {
+			color: gray;
+		}
+
+		.parent {
+			width: 90px;
+		}
+		.parent p {
+			float: left;
+			width: 30px;
+		}
+		.parent p+p {
+			float: right;
+		}
+	  h2+h2 {
+	  	color: red;
+	  }
+	  input[disabled] {
+	  	width: 200px;
+	  }
+
+	  .a {width: 200px;background-color: gray;}
+	  .b {width: 100px;background-color: red;}
+	  /*.b {margin-left: auto;margin-right: auto;}*/
+	  /*.a {text-align: center;}
+	  .b {display: inline-block;}*/
+	  .b {position:absolute;left: 50%;margin-left: -50px;}
+	  .a {line-height: 300%;font-size: 12px;}
+	  .a p {font-size: 16px;}
+	</style>
+</head>
+<body>
+
+	<div class="a">
+		<div class="b">sd&nbsp;f</div>
+	</div>
+	<br>
+	<br><br><br>
+	<div class="parent">
+		<div class="a">This is a demo</div>
+		<p class="b c">hello world</p>
+	</div>
+	<ul class="ul">
+		<li>
+			<p class="li p">sdf</p>
+		</li>
+		<li>
+			<p>saf</p>
+		</li>
+		<li>
+			<p>df</p>
+		</li>
+	</ul>
+	<div class="parent">
+		<p>a</p>
+		<p>b</p>
+		<p>c</p>
+	</div>
+	<h2>dsaf</h2>
+	<h2>dsfja</h2>
+	<input type="text" disabled>
+
+	<div class="a">
+		<p>sfas</p>
+	</div>
+</body>
+</html>
