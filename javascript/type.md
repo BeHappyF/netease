@@ -28,7 +28,7 @@ typeof new Function() ===	"function"
 
 总结一下：如果Object和（）或者new关键字组合（一个或者两个），那么返回"Object"。如果单独的Object则返回"Function".反过来如果是Function则无论如何都返回Function。
 
-typeof null		"Object"
+typeof null						=== "Object"
 
 这是一个历史遗留问题，兼容考虑。坑，要记住！
 
@@ -42,7 +42,7 @@ instanceof 基于原型链的判断。期望左操作数是一个对象，右操
 
 左操作数为基本类型则返回false.
 123 	instanceof Object	=== false
-true 	instanceof Ojbect	=== false
+true 	instanceof Object	=== false
 "123" instanceof Object	=== false
 
 右操作数不是函数对象则报错。
@@ -72,6 +72,22 @@ one instanceof Student  //false
 
 humiliter instanceof Person  //true
 
+同样有一个有意思的东西。
+
+[null]  		instanceof 	Object	//true
+null 				instanceof	Object	//false
+undefined	 	instanceof 	Object	//false
+[undefined] instanceof 	Object	//true
+[number]  	instanceof 	Object	//error
+[Number]  	instanceof 	Object	//true
+[Boolean] 	instanceof	Object  //true
+[Boolean] 	instanceof 	Array		//true
+[true] 			instanceof  Object	//true
+[true] 			instanceof 	Array		//ture
+
+总结：所有的东西再加了中括号之后都变成了数组.
+
+	
 
 注意：不同window和iframe间的对象类型检测不能用instanceof.
 
