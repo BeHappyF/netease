@@ -6,7 +6,7 @@ typeof "tsdf"					=== "string"
 typeof true						=== "boolean"
 typeof function () {} === "function"
 
-typeof(undefined)) 		=== "undefined"
+typeof(undefined)  		=== "undefined"
 typeof(new Object()) 	=== "object"
 typeof([1， 2]) 				=== "object"
 typeof(NaN) 			  	=== "number"
@@ -53,7 +53,7 @@ function Person() {}
 function Student() {}
 
 Student.prototype = new Person()
-
+<!-- 这个是有必要的，因为Person通过new关键字生成为一个实例，那么这个实例的constructor属性指向他的构造器，在将这实例定义为另外一个构造器的原型对象时。我们需要手动的讲这个原型的构造器属性变为当前的构造器。本例中即：Student-->
 Student.prototype.constructor = Student
 <!-- 
 创建一个实例对象，其内部会有一个指针，指向构造函数的原型对象。ECMA-262第五版叫这个指针为[[Prototype]]。虽没有标准的方法访问[[Prototype]].Firefox, safari ,chrome在每个这样的对象上支持一个属性"_proto_",通过它建立实例和构造函数的原型对象的联系。 

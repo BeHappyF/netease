@@ -1,4 +1,4 @@
-Number,Boolean,String这三种原始类型有其包装类型。如果对基本类型做相关的对象操作，javascript会智能的生成相关的临时包装类。使基本类型可以进行了对象的操作。（设置属性，访问属性）
+Number,Boolean,String这三种原始类型有其包装类型。如果对基本类型做相关的对象操作，javascript会智能的生成相关的临时包装类。使基本类型可以进行了对象的操作。（设置属性，访问属性，这个访问属性的意思是其包装类中的属性，如length）
 
 注：Null,Undefined这两种原始类型是没有包装类型。（记得首字母大写）
 
@@ -35,6 +35,9 @@ true?1:3		//1
 +[23] 			//23
 +"123" 			//123
 +[12,34] 		//NaN
++{} 				//NaN
++[]					//0
++"" 				//0
 
 delete运算符：
 var obj = {x:1,y:2};
@@ -44,7 +47,7 @@ obj.x 				//undefined
 delete obj.z  //true
 obj.z  				//undefined
 
-总结：delete运算符只关注原来对象中是否有那个值，如果有，将其值改为undefined，然后返回true。所以，对于一个不存在原来对象中的属性,其值原本就是undefined。delete 运算符的操作结果仍是true.
+总结：delete运算符只关注其运算是否成功实现了，如果是则返回true。而被delete的属性,其值变为undefined。无论其原来的值是否为undefined.
 
 深入：
 Object.defineProperty(obj,'x',{configurable:false, value:1});
@@ -95,7 +98,29 @@ void (0) //undefined
 //无论后面跟怎样的表达式，都会返回undefind
 
 
+今天涉及到实际的编程中，发现一个重要的东西。
+
+在定义一个变量的时候，在声明阶段就要给它赋予初始值，不同于强类型的编程语言，如果不赋予初值，那么变量的值被默认为undefined。这个值在简单的加减时，都会返回NaN.
+
+这个问题一直没有被发现，是因为留下了原来的编程语言习惯在里面。所以定义变量要賦初值，给出类型。
+
+例：
+var a = 0;
+var a = "";
+var a = [];
+var a = {};
+var a = false;
+var a = null;
+
+实践当中又发现一个很傻的问题：
+NaN不与任何数相等，包括他自己。如果要判断一个表达式的值为NaN，用isNaN()这个方法。
+
+例：如果我想判断一个数字不是NaN。
+错误：＋string !== NaN   这个表达式肯定是正确的，因为NaN不语任何数相等，无法起到作用。
+
+正确：!isNaN(+string)
 
 
+提示：string包装类的charAt方法后面是小括号，不是中括号，参数为一个索引。而indexOf同样是小括号，参数为一个子字符串。
 
 
