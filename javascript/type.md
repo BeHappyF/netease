@@ -75,10 +75,14 @@ humiliter instanceof Person  //true
 同样有一个有意思的东西。
 
 [null]  		instanceof 	Object	//true
+[undefined] instanceof 	Object	//true
 null 				instanceof	Object	//false
 undefined	 	instanceof 	Object	//false
-[undefined] instanceof 	Object	//true
+
+[Undefined] instanceof  Object  //error
 [number]  	instanceof 	Object	//error
+[boolean]   instanceof  Object  //error
+
 [Number]  	instanceof 	Object	//true
 [Boolean] 	instanceof	Object  //true
 [Boolean] 	instanceof 	Array		//true
@@ -86,6 +90,7 @@ undefined	 	instanceof 	Object	//false
 [true] 			instanceof 	Array		//ture
 
 总结：所有的东西再加了中括号之后都变成了数组.
+但是中间的三个为什么出错，还不明白。。。
 
 	
 
@@ -107,8 +112,13 @@ Object.prototype.toString.apply(undefined) === "[object Undefined]"
 
 <!-- IE6/7/8下Object.prototype.toString.apply(null)返回"[object Object]" -->
 
+注:这样的方式调用Object.prototype上的属性比较麻烦。所以可以通过一个Object的实力来调用就会方便很多。例：
 
+(new Object).toString.apply(null)	//"[object Null]"
+(new Object()).toString.apply(undefined)  //"[object Undefined]"
+({}).toString.apply([23,2])  		//"[object Array]"
 
+综上还是对象字面量的方式最为简单。并且他和new Object的方式是等价的。
 总结：
 
 typeof适合基本类型及function检测，遇到null失效。
