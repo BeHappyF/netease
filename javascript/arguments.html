@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<script>
+		function foo() {
+			this.b = 100;
+			return this.a;
+		}
+
+		var func = foo.bind({a:1});
+		func();
+	</script>
+</body>
+</html>
