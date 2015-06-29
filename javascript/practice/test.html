@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>二维数组</title>
+<script type="text/javascript">
+ var arr = [];
+ for(var i=0;i<3;i++) {
+    arr[i] = [];
+    for(var j=0;j<5;j++) {
+        arr[i][j] = i * j;
+        document.write("arr["+i+"]["+j+"]的值为：" + arr[i][j] + "<br>");
+        if(j == 4){
+        	document.write("第"+i+"行"+"<br><br>");
+        }
+    }
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

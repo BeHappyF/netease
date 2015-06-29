@@ -47,6 +47,11 @@ arr; //[1,2,3,4,5,6,7,8,9,10]
 
 注：不会改变原数组
 
+
+
+
+
+
 Array.prototype.map
 
 var arr = [1,2,3];
@@ -85,6 +90,11 @@ arr.lastIndexOf(1,-1);	//4
 
 注：不改变原数组
 
+
+
+
+
+
 Array.isArray 			
 判断是否是数组
 
@@ -107,6 +117,11 @@ arr.concat([3,4,[2,3]]) 	//[1,2,3,4,3,4,[2,3]]
 
 注：原数组未改变
 
+
+
+
+
+
 Array.prototype.join
 
 var arr = [1,2,3]
@@ -124,6 +139,11 @@ arr; 	//[1,2,3]
 
 注：不改变数组本身 
 
+
+
+
+
+
 Array.prototype.reverse
 
 var arr = [1,2,3]
@@ -131,6 +151,11 @@ arr.reverse(); //[3,2,1]
 arr;					 //[3,2,1]
 
 注：原数组被改变
+
+
+
+
+
 
 Array.prototype.sort
 
@@ -159,6 +184,10 @@ arr.forEach(function(item) {
 //age 32
 
 注：原数组被改变
+
+
+
+
 
 
 Array.prototype.slice

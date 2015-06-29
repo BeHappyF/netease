@@ -1,0 +1,28 @@
+<!DOCTYPE  HTML>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数组</title>
+<script type="text/javascript">
+ //创建数组
+ var  arr = ['*','##',"***","&&","****","##*"];
+ arr[7] = "**";
+ 
+ var tmp = [];
+ //将数组内容输出，完成达到的效果。 
+ // 这里利用到了字符串的一个特性：能够通过索引的方式访问到字符串中的字符。所以这里这里其实不是二维数组。
+ for(var i in arr) {
+     if(arr[i][0] == "*") {
+         tmp.push(arr[i]);
+     }
+ }
+ tmp.sort();
+ for(var j=0;j<tmp.length;j++) {
+     document.write(tmp[j] +"<br>");
+ }
+</script>
+</head>
+<body>
+</body>
+</html>
+
