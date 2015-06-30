@@ -14,5 +14,4 @@
     return this.valueOf() * this.valueOf();   
   }
 
-
-    
+  
