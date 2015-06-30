@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+
+<ul id="test"><li>JavaScript</li><li>HTML</li></ul> 
+ 
+<script type="text/javascript">
+
+  var otest = document.getElementById("test"); 
+  // 这几种方法都能够得到相同的答案
+  // var node = otest.childNodes[1];
+  // var node = otest.lastChild;
+  var node = document.getElementsByTagName("li")[1];
+  var newNode = document.createElement("li");
+  newNode.innerHTML = "PHP";
+  otest.insertBefore(newNode,node);
+  
+  
+  
+</script> 
+
+</body>
+</html>
+
