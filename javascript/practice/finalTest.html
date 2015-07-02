@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>finalTest</title>
+	<style>
+		.container {
+			width: 300px;
+			margin: 0 auto;
+			font:14px/1.1 "Simsun",sans-serif;
+		}
+		.container ul{
+			margin:0;
+			padding: 0 5px;
+			border-bottom: 2px solid #8B4513;
+			height: 22px;
+		}
+		.container ul li {
+			display: inline-block;
+			padding:0px 10px;
+			/*border-width: 1px 1px 0px;
+			border-style: solid;
+			border-color: #aaa;*/
+			border: 1px solid #aaa;
+			border-bottom: none;
+			line-height: 20px;
+		}
+		.container ul li:hover {
+			cursor:pointer;
+		}
+		.container ul li.active {
+			border-top: 2px solid #8B4513;
+			/*outline-bottom:2px solid #fff;*/
+			/*这里想要覆盖其父元素的border-bottom的设置，方式是设置给这个ul元素定高，然后再active的元素上，由于设置了特别样式恰好让下边框的样式覆盖其父元素的。*/
+			border-bottom: 2px solid #fff;
+		}
+		.content {
+			/*width: 300px;*/
+			padding: 10px 20px;
+			/*border-width:3px 1px 1px;
+			border-style: solid;
+			border-color: #8B4513 #7396B8 #7396B8;*/
+			border: 1px solid #7396B8;
+			border-top: none;
+		}
+		
+		.hide{display: none;} .show{display: block;}
+	</style>
+</head>
+<body>
+	<header class="container">
+		<ul>
+			<li class="active">房产</li>
+			<li>家居</li>
+			<li>二手房</li>
+		</ul>
+		<div id="part1" class="show content">
+			<p>275万购昌平邻铁三居 总价20万买一居</p>
+			<p>200万内购五环三居 140万安家东三环</p>
+			<p>北京首现零首付楼盘 53万购东5环50平</p>
+			<p>京楼盘直降5000 中信府 公园楼王现房</p>
+		</div>
+		<div id="part2" class="hide content">
+			<p>40平出租屋大改造 美少女的混搭小窝</p>
+			<p>经典清新简欧爱家 90平老房焕发新生</p>
+			<p>新中式的酷色温情 66平撞色活泼家居</p>
+			<p>瓷砖就像选好老婆 卫生间烟道的设计</p>
+		</div>
+		<div id="part3" class="hide content">
+			<p>通州豪华3居260万 二环稀缺2居250w甩</p>
+			<p>西3环通透2居290万 130万2居限量抢购</p>
+			<p>黄城根小学学区仅260万 121平70万抛!</p>
+			<p>独家别墅280万 苏州桥2居优惠价248万</p>
+		</div>
+	</header>
+	<script>
+		// var container = document.getElementById("container");
+		var oDiv = document.getElementsByTagName("div");
+		var oLi = document.getElementsByTagName("li");
+		// 这是一个给所有的三个切换块元素设置onmouseover方法，所以没有用到闭包的必要。
+		for(var i=0;i<oLi.length;i++) {
+			// 这里需要通过给鼠标经过的元素添加自身属性的方式，而不是定义一个变量。定义变量的方式其实是建立一个全局变量,之后的鼠标移动到其他元素便无法发生变化了。
+			// var index = i;
+			oLi[i].index = i;
+			oLi[i].onmouseover = function() {
+				// 这是给上面的标题过一遍，同样是将所有的class属性设置相同，作初始化。然后利用目前的li的index属性找到需要添加特殊样式的li。
+				for(var i=0;i<oLi.length;i++) {
+					oLi[i].className = "";
+				}
+				oLi[this.index].className = "active";
+				// 这里需要给所有的div重复一遍，因为从不同的li元素过度到另外一个是有区别的。
+				for(var j=0;j<oDiv.length;j++) {
+					oDiv[j].className = "hide content";
+				}	
+				// 这里可以看出className属性可以设置多个class
+				oDiv[this.index].className = "show content";
+				
+			};
+		}
+		// function change(obj) {
+		// 	for(var j=0;j<oDiv.length;j++) {
+		// 			obj.className = "hide content";
+		// 	}
+		// 	oDiv[index].className = "show content";
+		// }
+		// document.write(oDiv.length);
+	</script>
+</body>
+</html>
