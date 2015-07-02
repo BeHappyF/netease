@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>   
+ </head> 
+ <body> 
+	   <table border="1" width="50%" id="table">
+	   <tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	   </tr>  
+
+	   <tr>
+		<td>xh001</td>
+		<td>王小明</td>
+		<td><a href="javascript:;" onclick="removeRow(this)" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>
+
+	   <tr>
+		<td>xh002</td>
+		<td>刘小芳</td>
+		<td><a href="" onclick="removeRow(this)" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>  
+
+	   </table>
+	   <input type="button" value="添加一行" onclick="addRow()" />   <!--在添加按钮上添加点击事件  -->
+      <script type="text/javascript"> 
+      
+      window.onload = function(){
+                  
+     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+     var row = document.getElementsByTagName("tr");
+     for(var i=0;i<row.length;i++){
+       setColor(row[i]);
+     }     
+
+     function setColor  (obj) {
+       obj.onmouseover = function() {
+         obj.style.backgroundColor = "#f2f2f2";
+        }
+       obj.onmouseout = function() {
+         obj.style.backgroundColor = "#fff";
+        }
+
+     }
+   
+   }
+     
+      // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+     function addRow(){
+      // 这个函数当中同样也有相同的问题：就是table的这个标签只能够通过在函数内部获得，我本来想在外面获得。但是结果不能用。也不知道是为什么。
+         var table = document.getElementById("table");
+         var length = table.childNodes.length + 1;
+         var row = document.createElement("tr");
+         var col1 = document.createElement("td");
+         col1.innerHTML = "xh00" + length;
+         var col2 = document.createElement("td");
+         // 挺好玩的
+         var name = ["赵","钱","孙","李","周","吴","郑","王"];
+         var name2 = ["伯","仲","叔","季","爱","我","中","华"];
+         var random = Math.floor(Math.random()*8);
+         col2.innerHTML = name[random]+"小"+name2[random];
+         var col3 = document.createElement("td");
+         var a = document.createElement("a");
+         a.innerHTML = "删除";
+         a.href = "";
+         a.onclick = "removeRow()";
+         col3.appendChild(a);
+         row.appendChild(col1);
+         row.appendChild(col2);
+         row.appendChild(col3);
+         row.onmouseover = function() {
+            this.style.backgroundColor = "#f2f2f2";
+        }
+         row.onmouseout = function() {
+             this.style.backgroundColor = "#fff";
+        }
+         // for(var i=0;i<3;i++) {
+         //     var col = document.createElement("td");
+         //     // col.innerHTML ="aaa";
+         //     row.appendChild(col);
+         // }
+         // var a = document.createElement("a");
+         // a.innerHTML = "删除";
+         // a.href = "";
+         // a.onclick = "removeRow()";
+         // col.appendChild(a);
+         // table添加一行，如果在每列当中添加了元素，能够正常显示。但是如果同时给行添加文字节点，就会覆盖里面的td.
+         // row.innerHTML = "dsf";
+         table.appendChild(row);
+     }
+        
+     
+     // 创建删除函数
+     function removeRow(obj){
+        // 不知道为什么不能够直接用table，而只能够通过获得obj参数获得table标签。
+        // obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
+        var tr = obj.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+     }
+  </script> 
+ </body>
+</html>
+
