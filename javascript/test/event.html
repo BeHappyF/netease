@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>eventTest</title>
+</head>
+<body> 
+	<input id="btn" type="button" value="dian">
+	<script>
+		 var btn = document.getElementById("btn");
+		 // dom0
+		 btn.onclick = function  (event) {
+		 		alert(event.type);
+		 };
+		 // dom2
+		 btn.addEventListener("click",function  (event) {
+		 	alert(event.type);
+		 },false);
+	</script>
+</body>
+</html>
