@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>collection is live</title>
+    <style>
+    	/*因为通配符选择器在浏览器中会报错。所以采用这种使用哪个标签就给哪个标签消除浏览器默认属性的方式。*/
+    	html, body,h2, ul, li{margin: 0;padding: 0;}
+			body{font-family: arial;}
+			#users{margin: 30px;width: 210px;box-shadow: 0px 1px 2px #bbb;}
+			h2{height: 50px;line-height: 50px;padding-left: 20px;font-size: 18px;border-bottom: 1px solid #dfdfdf;}
+			ul{padding: 10px 0;overflow: hidden;}
+			.user{float: left;width: 50px;margin: 10px;list-style: none;}
+			.user a{color: #666;text-decoration: none;font-size: 12px;}
+    </style>
+</head>
+<body>
+    <div id="users">
+        <h2>8882人在学习该课程:</h2>
+        <ul>
+            <li class="user">
+                <a href="/user/1">Satoshi</a>
+            </li>
+            <li class="user">
+                <a href="/user/2">春来草青</a>
+            </li>
+            <li id="lastUser" class="user last">
+                <a href="/user/3">Kash</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+    	// 因为id在HTML页面中一般只有一个元素，所以只能在document下进行查找。如果是其他的元素则无法找到。返回的是一个对象的应用。
+    	// 如果是程序员的大意或者说是需要的话，HTML中存在多个具有同样id名称的元素。返回的是HTMLCollection中的第一个对象引用。
+    	var users = document.getElementById('users');
+        // document.getElementById("xxx")是元素节点
+        alert(users instanceof Node);
+        alert(users instanceof Element);
+    	//通过getElementsByTagName方法查找的返回一组对象的引用。可以通过索引的方式访问数组中不同的项。这里可以通过多次的查找精确范围。不一定是在document的范围下查找。
+    	var a = users.getElementsByTagName('li');
+        // 返回的是false,不是数组，我上面的说法是错的
+        alert(a instanceof Array);
+        alert('一共有' + a.length + '个用户!');
+        // 返回false。HTMLCollection 对象和 NodeList 对象很相似，但前者可能既能用名称索引也能用数字索引。
+        alert(a instanceof NodeList);
+        // 只有这个返回的是true.HTMLCollection 是一个接口，表示HTML 元素的集合，它提供了可以遍历列表的方法和属性
+        alert(a instanceof HTMLCollection);
+        // 因为返回的是javascript对象，所以不能够用数组下标的方式。直接alert输出会调用valueOf或toString方法
+        //不知道为什么对象的原型链貌似很长
+        // alert(users);
+        // 确实是一个对象
+        alert(users instanceof Object);
+        // alert(users.__proto__.__proto__.__proto__.__proto__.__proto__);
+        // alert(users[0]);
+        var lastUser = document.getElementById('lastUser');
+        // 删除元素节点的方法：removeChild。调用方法的对象是被删除元素的父节点，参数为删除对象。
+        lastUser.parentNode.removeChild(lastUser);
+        // 这里可以看出getElementsByTagName的返回值是动态的，在删除其中的一个元素之后，返回的对象引用会相应的减少对应的项。
+        alert('一共有' + a.length + '个用户!');
+    </script>
+</body>
+</html>

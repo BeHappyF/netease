@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <style>
+    	html, body,h2, ul, li{margin: 0;padding: 0;}
+		body{font-family: arial;}
+		#users{margin: 30px;width: 210px;box-shadow: 0px 1px 2px #bbb;}
+		h2{height: 50px;line-height: 50px;padding-left: 20px;font-size: 18px;border-bottom: 1px solid #dfdfdf;}
+		ul{padding: 10px 0;overflow: hidden;}
+		.user{float: left;width: 50px;margin: 10px;list-style: none;}
+		.user a{color: #666;text-decoration: none;font-size: 12px;}
+    </style>
+</head>
+<body>
+    <div id="users">
+        <h2>8882人在学习该课程:</h2>
+        <ul>
+            <li class="user">
+                <img src="1.jpg">
+                <a href="/user/1">Satoshi</a>
+            </li>
+            <li class="user">
+                <img src="2.jpg">
+                <a href="/user/2">春来草青</a>
+            </li>
+            <li class="user">
+                <img src="3.jpg">
+                <a href="/user/3">Kash</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 节点也被称之为HTML元素。
+    	var users = document.getElementById('users');
+    	var ul = users.getElementsByTagName('ul')[0];
+        // 通过getElementsByTagName和querySelector方法获得节点，虽然一个是动态变化的，而一个是静止的。但是可以相互串用。
+        var a = ul.querySelector('.user a');
+        // 这种方式为元素绑定事件。方便但是只能绑定一个
+        a.onclick = function(event){
+            // 后者都是为了兼容IE浏览器下的版本
+            event = event || window.event;
+            var target = event.target || event.srcElement;
+            alert('我是' + target.innerText);
+            // 意义不明
+            return false;
+        };
+
+
+    	ul.innerHTML += '<li class="user">\
+                    <img src="4.jpg">\
+                    <a href="/user/4">lifeng</a>\
+                </li>';
+    </script>
+</body>
+</html>

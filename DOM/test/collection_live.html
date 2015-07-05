@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>collection_live</title>
+	<style>
+		html, body,h2, ul, li{margin: 0;padding: 0;}
+		.container {
+			width: 210px;
+			margin: 30px;
+			padding: 1px solid #ddd;
+			/*并不存在上右下左的顺序，因为都是从内容框作为起点的定位。但是我还是喜欢按照顺序来。但是要注意阴影是由叠加功能的。所以如果多个相同颜色叠加之后，会发现显色不是自己设置的。*/
+			/*box-shadow: 0 0 #ddd,0 1px 1px #ddd,0 1px 2px #ddd,0 1px 1px #ddd;*/
+			box-shadow: 0 1px 2px #bbb;
+		}
+		.container h3 {
+			/*消除默认属性*/
+			margin:0;
+			padding: 20px;
+			border-bottom: 1px solid #eee;
+			font:bold 16px/1.5 "Microsoft Yahei",sans-serif;
+
+		}
+		.container ul {
+			/*有默认属性：margin-left和margin-right:1em;padding-start:40px;消除就好*/
+			padding: 20px 10px;
+			font: 12px "Heiti",sans-serif;
+		}
+		.container ul li {
+			display: inline-block;
+			padding-right: 12px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>8882人在学习该课程：</h3>
+		<ul>
+			<li>Satoshi</li>
+			<li>春来草青</li>
+			<li>Kash</li>
+		</ul>
+	</div>
+</body>
+</html>

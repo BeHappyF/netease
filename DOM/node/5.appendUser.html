@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <style>
+    	html, body,h2, ul, li{margin: 0;padding: 0;}
+		body{font-family: arial;}
+		#users{margin: 30px;width: 210px;box-shadow: 0px 1px 2px #bbb;}
+		h2{height: 50px;line-height: 50px;padding-left: 20px;font-size: 18px;border-bottom: 1px solid #dfdfdf;}
+		ul{padding: 10px 0;overflow: hidden;}
+		.user{float: left;width: 50px;margin: 10px;list-style: none;}
+		.user a{color: #666;text-decoration: none;font-size: 12px;}
+    </style>
+</head>
+<body>
+    <div id="users">
+        <h2>8882人在学习该课程:</h2>
+        <ul>
+            <li class="user">
+                <img src="1.jpg">
+                <a href="/user/1">Satoshi</a>
+            </li>
+            <li class="user">
+                <img src="2.jpg">
+                <a href="/user/2">春来草青</a>
+            </li>
+            <li class="user">
+                <img src="3.jpg">
+                <a href="/user/3">Kash</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+    	var users = document.getElementById('users');
+    	var ul = users.getElementsByTagName('ul')[0];
+
+    	var li = document.createElement ("li");
+    	li.className = 'user';
+        // 这里是创建一个新节点，然后赋值属性，然后将其添加到文档当中。比较赞同。
+        // 个人认为还有一种比较好的方式：将所有的创建和属性添加以及添加文档的三个环节分开来。这样会有比较好的层次。
+        // 同时，appendChild方法添加的节点自动添加到父元素的最后位置。
+		ul.appendChild(li);
+		var img = document.createElement ("img");
+		img.src = '4.jpg';
+		li.appendChild(img);
+		var a = document.createElement ("a");
+		a.innerText = "lifeng";
+		a.href = '/user/4';
+		li.appendChild(a);
+
+
+        // 节点元素的获得阶段
+        var users =  document.getElementById("users");
+        var ul = users.getElementsByTagName("ul")[0];
+        // 新节点的创建阶段
+        var li  = document.createElement("li");
+        var img = document.createElement("img");
+        var a   = document.createElement("a");
+        // 属性的创建阶段
+        li.className = "user";
+        img.src = "4.jpg";
+        a.innerText = "Humiliter";
+        a.href = "/user/4";
+        //  节点添加到文档阶段
+        ul.appendChild(li);
+        li.appendChild(img);
+        li.appendChild(a);
+
+    </script>
+</body>
+</html>

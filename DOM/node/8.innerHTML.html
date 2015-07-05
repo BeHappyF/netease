@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>innerHTML</title>
+</head>
+<body>
+    <div id="users">
+        <h2>8882人在学习该课程:</h2>
+        <ul>
+            <li class="user">Satoshi</li>
+            <li class="user">春来草青</li>
+            <li class="user last">Tom</li>
+        </ul>
+    </div>
+    <script>
+    	var users = document.getElementById('users');
+        // innerHTML访问节点对象的HTML代码，可以通过赋值修改其具体的代码，且代码保持原有的缩进格式
+    	alert(users.innerHTML);
+
+    	var ul = users.getElementsByTagName('ul')[0];
+    	alert(ul.innerHTML);
+
+    	var user_last = users.getElementsByClassName('user')[2];
+        // 到这个节点的输出没有标签，是因为这一层是一个文本节点。并没有标签的显示。所以会和innerText的输出相同。但本质的区别没有改变。
+    	alert(user_last.innerHTML);
+    	alert(user_last.innerText);
+
+        // 这里可以看到innerHTML可以重写原本的HTML代码。并且屏幕的闪烁可以看出这个是重新绘制渲染的一个过程。
+    	users.innerHTML = '<p>hello,<span>mooc</span></p>';
+    </script>
+</body>
+</html>

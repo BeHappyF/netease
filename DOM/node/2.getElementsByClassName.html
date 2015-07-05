@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <style>
+    	html, body,h2, ul, li{margin: 0;padding: 0;}
+		body{font-family: arial;}
+		#users{margin: 30px;width: 210px;box-shadow: 0px 1px 2px #bbb;}
+		h2{height: 50px;line-height: 50px;padding-left: 20px;font-size: 18px;border-bottom: 1px solid #dfdfdf;}
+		ul{padding: 10px 0;overflow: hidden;}
+		.user{float: left;width: 50px;margin: 10px;list-style: none;} 
+		.user a{color: #666;text-decoration: none;font-size: 12px;}
+    </style>
+</head>
+<body>
+    <div id="users">
+        <h2>8882人在学习该课程:</h2>
+        <ul>
+            <li class="user">
+                <img src="1.jpg">
+                <a href="/user/1">Satoshi</a>
+            </li>
+            <li class="user">
+                <img src="2.jpg">
+                <a href="/user/2">春来草青</a>
+            </li>
+            <li class="user last">
+                <img src="3.jpg">
+                <a href="/user/3">Kash</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+    	// 一个对方法getElementsByClassName的兼容。
+    	function getElementsByClassName(element, names) {
+		    if (element.getElementsByClassName) {
+		        return element.getElementsByClassName(names);
+		    } else {
+		    		// 通配符的作用在这里和CSS中起到的作用是相类似的。返回元素下所有的标签元素。
+		        var elements = element.getElementsByTagName('*');
+		        var result = [];
+		        var element,
+		            classNameStr,
+		            flag;
+		        // 如果有多个class名，则会获得多个项
+		        names = names.split(' ');
+		        for (var i = 0; element = elements[i]; i++) {
+		        	// 假设某元素的class为"happy".则classNameStr返回" happy ";如果class为"happy Humiliter",则返回" happy Humiliter "。
+		        	// 返回的字符串中前后都会有空格，两个class名之间的空格是element.className自己的。
+		            classNameStr = ' ' + element.className + ' ';
+		            flag = true;
+		            // 这个循环设置是考虑到多个class的情况。
+		            for (var j = 0, name; name = names[j]; j++) {
+		                if (classNameStr.indexOf(' ' + name + '') == -1) {
+		                    flag = false;
+		                    break;
+		                }
+		            }
+		            // result为符合class名称的结果集
+		            if (flag) {
+		                result.push(element);
+		            }
+		        }
+		        return result;
+		    }
+		}
+
+		var users = getElementsByClassName(document, 'user');
+		alert(users.length + ' users');
+		// names的参数中顺序没有影响
+		// 这里的getElementsByClassName返回的是一个数组对象。里面可能包含多个值，但是如果只有一个值的情况下，同样需要使用下角标的方式才能够访问到里面的对象。原因是他是一个数组对象。
+		// getElementById方法返回的则是一个对象。
+		var lastUser = getElementsByClassName(document, 'user last')[0];
+		alert('last user is ' + lastUser.innerText);
+    </script>
+</body>
+</html>
