@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<form action="#"><input id="userName" name="userName" class="name"></form>
+	<script>
+		// 不太明白为什么返回的结果为空。难道是因为参数只接受id或class选择器，不接受标签选择器？
+		alert(document.querySelector("userName"));
+	</script>
+</body>
+</html>

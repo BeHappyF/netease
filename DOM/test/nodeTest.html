@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nodeTest</title>
+</head>
+<body>
+	<div id="example">
+		<p id="p1" class="aaa bbb"></p>
+		<p id="p2" class="aaa ccc"></p>
+		<p id="p3" class="bbb ccc"></p>
+	</div>
+	<script type="text/javascript">
+		function getElementsByClassName (element, names) {
+			var ret;
+			if(element.getElementsByClassName) {
+				ret = element.getElementsByClassName(names);	//这是一个HTMLCollection对象
+			} else {
+				var elements = element.getElementsByTagName("*");
+				var result = [];
+				var name = names.split(" ");
+				var flag,
+						classNameStr;
+				for(var i=0;i<elements.length;i++) {
+					flag = true;
+					classNameStr = " " + elements[i].className + " ";
+					for(var j=0;j<name.length;j++) {
+						if(classNameStr.indexOf(" " + name[j] + "") == -1) {
+							flag = false;
+							break;
+						}
+					}
+					if(flag) {
+						result.push(elements[i]);
+					}
+				}
+				ret = result;
+			}
+	// 使返回的是一个数组对象
+	ret = [].slice.call(ret, 0);
+	// 统一出口
+	return ret;
+}
+	var example = document.getElementById("example");
+	var ret = getElementsByClassName(example, "aaa");
+	// 这里是为了能够更好地了解输出地结果，通过数组对象的操作能够有更多种类的方式。这里只是选择了一种。
+	for(var i=0;i<ret.length;i++) {
+		// 变为了数组对象之后，其实只是整个的对象具有了数组的操作方式。但是对象中的每一个成员仍是节点，这一点没有变。所以可以通过id属性访问当其属性值。
+		alert("id名:" + ret[i].id);
+	}
+	</script>
+</body>
+</html>
