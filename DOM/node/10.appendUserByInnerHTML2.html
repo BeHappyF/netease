@@ -35,7 +35,7 @@
         // 节点也被称之为HTML元素。
     	var users = document.getElementById('users');
     	var ul = users.getElementsByTagName('ul')[0];
-        // 通过getElementsByTagName和querySelector方法获得节点，虽然一个是动态变化的，而一个是静止的。但是可以相互串用。
+        // 通过getElementsByTagName和querySelector方法获得节点，两者都是动态的。
         var a = ul.querySelector('.user a');
         // 这种方式为元素绑定事件。方便但是只能绑定一个
         a.onclick = function(event){
@@ -47,7 +47,7 @@
             return false;
         };
 
-
+        // 在原有的节点基础上修改（添加）节点内容。那么相当于重新绘制一遍此节点。所以在javascript中前面对此节点内容设置的样式和事件都将失效。
     	ul.innerHTML += '<li class="user">\
                     <img src="4.jpg">\
                     <a href="/user/4">lifeng</a>\
