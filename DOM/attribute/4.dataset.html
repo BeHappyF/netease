@@ -42,7 +42,7 @@
 			// 给每个li节点添加onmouseover事件
 			li.onmouseenter = function(event){
 				// 一些兼容问题
-				event = event || window.event;
+				event = event || window.event;	//优先使用W3C规范
 				var user = event.target|| event.srcElement;
 				// 一个dateset属性会将页面代码中所有的数据整合成一个类似数组的东西。
 				var data = user.dataset;

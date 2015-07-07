@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>datasetDemo</title>
+	<style>
+		html,div,ul,li,table,tr,td {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+
+			width: 600px;
+			margin: 30px auto;
+		}
+		.clearfix {
+			content: ",";
+			display: block;
+			height: 0;
+			overflow: hidden;
+			opacity: hidden;
+			clear: both;
+		}
+		ul {
+			float: left;
+			width: 100px;
+			list-style-type: none;
+		}
+		table {
+			border: 1px solid #bbb;
+			border-collapse: collapse;
+			width: 300px;
+		}
+		td {
+			padding: 5px 10px;
+			border: 1px solid #bbb;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul>
+			<li data-name="fangbin" data-id="11230101" data-account-name="Humiliter" data-email="m18704622706@163.com" data-mobile="18723023181">Humiliter</li>
+		</ul>
+		<div id="card" style="display:none">
+			<table>
+				<thead>
+					<tr><td colspan="2" id="accountName"></td></tr>
+				</thead>
+				<tbody>
+					<tr><td>姓名：</td><td id="name"></td></tr>
+					<tr><td>邮箱：</td><td id="email"></td></tr>
+					<tr><td>电话：</td><td id="mobile"></td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script>
+	function $ (id) {
+		return document.getElementById("id");
+	}
+	var lis = document.getElementsByTagName("li");
+
+	for(var i=0, li; li = lis[i]; i++) {
+		li.onmouseenter = function(event) {
+			// var e = event || window.event;
+			// var user = e.target || e.srcElement;
+			event = event || window.event;
+			var user = event.target || event.srcElement;
+			var data = user.dataset;
+			// NamedNodeMap有length属性
+			// 由于是一个集合，其内部每一项具有name属性和value属性，属性值为字符串
+			// 这个很好理解，就是将getAttributes返回的所有值包含在一个集合当中，这个集合只有一个length属性。
+			var data = user.attributes;
+			// alert(data[0].name);
+			alert(data[0].value)
+			// 不知道错在哪，明明上面的语句还能够访问到accoutName的值，下一个语句就无法访问了。
+			$("accountName").innerText = data.accountName;
+			$("name").innerText = data.name;
+			$("email").innerText = data.email;
+			$("mobile").innerText = data.mobile;
+
+			$("card").style.display = "block";
+		};
+
+		li.onmouseleave = function(event) {
+			$("card").style.display = "none";
+		};
+
+	}
+	
+	</script>
+</body>
+</html>

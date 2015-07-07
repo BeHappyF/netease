@@ -11,7 +11,7 @@
 	<script>
 		var input = document.getElementsByTagName('input')[0];
 		function showSuggest(){}
-		// 下面的方式是通过元素节点的getAttribute方法得到，所有的值都被转换成了String类型
+		// 下面的方式是通过元素节点的getAttribute方法得到，其参数和直接访问属性的属性名相同。所有的值都被转换成了String类型
 
 		alert('class attribute的类型是：' + typeof(input.getAttribute('class')));
 		alert('maxlength attribute的类型是：' + typeof(input.getAttribute('maxlength')));
