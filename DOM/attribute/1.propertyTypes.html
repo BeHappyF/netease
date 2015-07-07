@@ -11,11 +11,14 @@
 	<script>
 		var input = document.getElementsByTagName('input')[0];
 		function showSuggest(){}
-		
-
+		// 下面的方式是直接通过访问元素节点的属性得到不同的数据类型。
+		// string
 		alert('class property的类型是：' + typeof(input.className));
+		// number
 		alert('maxlength property的类型是：' + typeof(input.maxLength));
+		// boolean
 		alert('disabled property的类型是：' + typeof(input.disabled));
+		// function
 		alert('onclick property的类型是：' + typeof(input.onclick));
 	</script>
 </body>

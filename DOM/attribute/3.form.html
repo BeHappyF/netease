@@ -32,8 +32,10 @@
 	</form>
 	<script>
 		var button = document.getElementById('login');
+		// 函数作用：点击一次之后防止再次点击，避免数据重复上传。改变其disabled属性，使其不能够点击。同时为了让用户了解到，特意修改了样式属性。使更加直观。
 		button.onclick = function(){
 			button.disabled = true;
+			// 这里是通过新添加class属性的方式。
 			button.setAttribute('class', 'disabled');
 		};
 	</script>

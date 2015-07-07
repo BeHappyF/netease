@@ -21,6 +21,7 @@
 			data-name="蔡剑飞" data-email="cjf123@163.com" 
 			data-mobile="13968789868">cjf</li>
 	</ul>
+	<!-- 这是一个隐藏的表单内容，通过鼠标over事件触发，显示内容。 -->
 	<div id="card" style="display:none">
 		<table>
 			<caption id="accountName"></caption>
@@ -31,25 +32,29 @@
 
 	</div>
 	<script>
+		// 这个是自己定义的获得页面内相应id的元素。和jquery十分像。
 		function $(id){
 			return document.getElementById(id);
 		}
 		
 		var lis = document.getElementsByTagName('li');
 		for(var i = 0, li;li = lis[i]; i++){
+			// 给每个li节点添加onmouseover事件
 			li.onmouseenter = function(event){
+				// 一些兼容问题
 				event = event || window.event;
 				var user = event.target|| event.srcElement;
+				// 一个dateset属性会将页面代码中所有的数据整合成一个类似数组的东西。
 				var data = user.dataset;
-
+				// 访问dataset中的数据的转化方式：data-account-name -> accoutName。记住就行。
 				$('accountName').innerText = data.accountName;
 				$('name').innerText = data.name;
 				$('email').innerText = data.email;
 				$('mobile').innerText = data.mobile;
-
+				// 让整个的列表显示，在这里我想将显示放在最前面，然后加载其中的内容。结果没有什么变化。但是我知道如果加载数据的时间过长，例如从后台加载数据，其中肯定会发生空表单的情况，然后数据慢慢的出现完成的现象。所以还是将显示的变化放在最后比较好。。
 				$('card').style.display = 'block';
 			};
-
+			// 鼠标离开，表单消失
 			li.onmouseleave = function(event){
 				$('card').style.display = 'none';
 			};
