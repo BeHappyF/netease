@@ -17,9 +17,13 @@
 
 		function updateStyle(){
 			var element = $('mobile');
-			// 通过cssText的方式添加样式，其参数与CSS书写格式相同。
+			// 通过cssText的方式添加/修改样式，其参数与CSS书写格式相同。
 			// 同样是内嵌级的样式。
 			element.style.cssText = 'border-color:red;color:red;';
+			// 可以通过cssText访问内嵌样式
+			alert(element.style.cssText);
+			// 是我想多了，并不能够访问cssText中的具体样式。cssText本身只是一个字符串，不是对象。当然可以通过正则的方式，不过那样太麻烦了。
+			// alert(element.style.cssText[0]);	//b
 		}
 
 	</script>

@@ -30,13 +30,19 @@
 			var element = $('mobile0');
 			// 因为这里是获取内嵌级的样式属性，所以在内部样式表中添加的对应属性即使设置了，也无法获取到。
 			// 有很大的局限性。
-			alert(element.style.color);
+			// alert(element.style.color);
+			// 报错，style是一个对象。没有substring方法。
+			// alert(element.style.substring(13,18));
+			alert(element.sheet);
+			// alert(window.getComputeStyle(element).color);
+
 		}
 
 		function getStyle1(){
 			var element = $('mobile1');
 
 			alert(element.style.color);
+
 		}
 
 	</script>
