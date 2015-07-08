@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="base.css">
+		<style>
+			body.container {margin: 30px;}
+			p {color: #aaa;line-height: 20px;}
+		</style>
+	</head>
+	<body class="container">
+		<p style="color:red">paragraph</p>
+	</body>
+	<script>
+			var innerCss = document.getElementsByTagName("style")[0];
+
+			// 这一个个的都是对象
+			// alert(innerCss.sheet);	//	[object CSSStyleSheet]
+			// alert(innerCss.sheet.cssRules); // [object CSSRuleList]
+			// alert(innerCss.sheet.cssRules[1]) ;//[object CSSStyleRule]
+			// alert(innerCss.sheet.cssRules[0].style);	//[object CSSStyleDelaration]
+
+			//这个真是有意思，虽然设置的是margin属性，但是其实浏览器会给分解成上右下左的顺序全部设置一遍。
+			// alert(innerCss.sheet.cssRules[0].style[0]); //margin-top
+			// 不但可以通过下标访问，还可以通过属性名称。但是属性名称与CSS中有区别，但是很容易对应。
+			// alert(innerCss.sheet.cssRules[1].style.lineHeight); //20px
+
+			// 样式选择器名称
+			// alert(innerCss.sheet.cssRules[0].selectorText);	//body.container
+
+			var outCss = document.getElementsByTagName("link")[0];
+			// alert(outCss);	// [object HTMLinkElement]
+			// alert(outCss.sheet);	//同上
+			// 看来访问外部样式表有一套另外的访问方法
+			alert(outCss.sheet.cssRules);	//null
+
+			//document.styleSheets下次再试吧。。
+	</script>
+</html>
+
+
+
+
+
+
+

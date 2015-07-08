@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>getComputedStyle - 获取样式</title>
 	<style>
 		div{margin: 20px auto;}
@@ -25,13 +26,15 @@
 
 		function getStyle0(){
 			var element = $('mobile0');
-			
+			// 虽然都没有显式的定义文字的颜色，但是有默认属性
+			// window.getComputedStyle访问的是渲染后的样式结果。可以在调试工具：element -> Computed 页面下查看到相关的渲染值。
 			alert(window.getComputedStyle(element).color);
 		}
 
 		function getStyle1(){
 			var element = $('mobile1');
-
+			// 返回值是一个rbg()方式表示的颜色值，这与内嵌样式的表示方式不同，但是在调试工具中查看的结果中就是rbh()表示。
+			// 所以说这与浏览器的渲染结果显示有关。
 			alert(window.getComputedStyle(element).color);
 		}
 

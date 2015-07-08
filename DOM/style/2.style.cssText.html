@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>style.cssText - 更新样式</title>
 	<style>
 		button{padding: 4px 5px;margin-left: 10px;}
@@ -16,7 +17,8 @@
 
 		function updateStyle(){
 			var element = $('mobile');
-
+			// 通过cssText的方式添加样式，其参数与CSS书写格式相同。
+			// 同样是内嵌级的样式。
 			element.style.cssText = 'border-color:red;color:red;';
 		}
 

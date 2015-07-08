@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>className - 更新样式</title>
 	<style>
 		button{padding: 4px 5px;margin-left: 10px;}
@@ -18,7 +19,10 @@
 
 		function updateStyle(){
 			var element = $('mobile');
-
+			// 通过修改节点的class属性来更换一批CSS样式，这个对于修改的样式较多的场景比较合适。
+			// 本例当中，原本是没有class属性的，现在给它加一个class属性。
+			// 但是我认为这样的场景还是有局限的，因为节点大多会有自己的属性，所以此方法更多是替换而不是增加。
+			// 还有一点，因为这个是在内部样式表中的修改样式，所以如果想要修改内嵌级别的样式，这种办法要想起作用就要注意了。
 			element.className += ' invalid';
 		}
 

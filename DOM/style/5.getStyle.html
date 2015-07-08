@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>style - 获取样式</title>
 	<style>
-		div{margin: 20px auto;}
+		/*为什么这里的color属性没办法继承？*/
+		div{margin: 20px auto;  /*color: blue;*/}
 		button{padding: 4px 5px;margin-left: 10px;}
-		input{width: 215px;padding: 4px 5px;border: 1px solid #ababab;border-radius: 3px;box-shadow: 2px 2px 3px #ededed inset;font-size: 14px;font-weight: bold;}
+		/*这里的color是可以继承的*/
+		input{color: blue;width: 215px;padding: 4px 5px;border: 1px solid #ababab;border-radius: 3px;box-shadow: 2px 2px 3px #ededed inset;font-size: 14px;font-weight: bold;}
 
 	</style>
 </head>
@@ -25,7 +28,8 @@
 
 		function getStyle0(){
 			var element = $('mobile0');
-
+			// 因为这里是获取内嵌级的样式属性，所以在内部样式表中添加的对应属性即使设置了，也无法获取到。
+			// 有很大的局限性。
 			alert(element.style.color);
 		}
 

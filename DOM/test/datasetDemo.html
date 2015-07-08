@@ -71,9 +71,10 @@
 			// NamedNodeMap有length属性
 			// 由于是一个集合，其内部每一项具有name属性和value属性，属性值为字符串
 			// 这个很好理解，就是将getAttributes返回的所有值包含在一个集合当中，这个集合只有一个length属性。
-			var data = user.attributes;
+			// var data = user.attributes;
 			// alert(data[0].name);
-			alert(data[0].value)
+			// alert(data[0].value)
+			alert(data['data-name']);
 			// 不知道错在哪，明明上面的语句还能够访问到accoutName的值，下一个语句就无法访问了。
 			$("accountName").innerText = data.accountName;
 			$("name").innerText = data.name;

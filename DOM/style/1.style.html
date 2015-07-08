@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>style - 更新样式</title>
 	<style>
 		button{padding: 4px 5px;margin-left: 10px;}
@@ -12,11 +13,12 @@
 	<button id="update">更新样式</button>
 	<script src="util.js"></script>
 	<script>
+		// 添加事件监听，这个是在后面事件当中讲解的内容，下面的方式可以给一个节点添加多个事件
 		Util.addEventListener($('update'), 'click', updateStyle);
 
 		function updateStyle(){
 			var element = $('mobile');
-
+			// 属性访问的方式添加修改样式，这个样式添加之后为内嵌样式，所以其权值很高。所以能够覆盖内部样式表，从而生效。
 			element.style.borderColor = 'red';
 			element.style.color = 'red';
 		}

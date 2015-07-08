@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>创建样式表</title>
 	<link rel="stylesheet" href="base.css">
 </head>
@@ -18,18 +19,26 @@
 	
 	<script src="../util.js"></script>
 	<script>
+		// 从无到有的创建样式表
 		Util.addEventListener($('create0'), 'click', createStyleSheet0);
 		Util.addEventListener($('create1'), 'click', createStyleSheet1);
-
+		// 此方法添加的是外部样式表
 		function createStyleSheet0(){
+			// 添加link元素节点
 			var link = document.createElement('link');
 			link.rel = 'stylesheet';
 			link.href = 'skin.summer.css';
 			document.getElementsByTagName('head')[0].appendChild(link);
 		}
-
+		// 此方法添加的是内部样式表
 		function createStyleSheet1(){
+			// 这个不是属性节点，而是头部中的style元素节点。
+			// 其实从名称也可以看出来createElement创建的是一个元素节点
 			var style = document.createElement('style');
+			// 用节点的innerText属性添加多个样式
+			// 这个是无法用style或cssText方式做到的，他们只能给一个元素添加样式。
+			// "\"起到换行作用？
+			// "\"并不是换行，从调试工具内看到确实起到了隔开元素的作用。且距离大小相同。
 			style.innerText = 'body{background-color: #fefaf7;}\
 									.m-tw .u-img{border-color: #a84c5b;}\
 									.m-tw p{color: #6d3e48;}\
