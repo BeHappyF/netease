@@ -29,10 +29,10 @@
 	获取一个或多个元素节点，返回值为NodeList类型。参数书写方式与CSS选择器相同。
 
 3.node.childNodes
-	获取节点的所有子节点。返回值为NodeList类型。
+	获取节点的所有子节点(不是后代元素，牢记！）。返回值为NodeList类型。
 
 4.node.children
-	获取节点的所有子元素节点。返回值为HTMLCollection类型。
+	获取节点的所有子元素节点(同样不是后代元素，牢记！)。返回值为HTMLCollection类型。
 	存在兼容性问题，解决代码见：../test/elementChild.js
 
 
