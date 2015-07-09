@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fallback content</title>
+</head>
+<body>
+	<!-- 什么都不显示，因为我用的浏览器是支持canvas标签的,
+			 不支持canvas标签的浏览器则会显示下面的一句话 -->
+	<!-- canvas标签只有width和height这两个属性。当然，id和class这样的属性是任何属性都有的。canvas更像是一个容器，如果不描绘它，在页面上显示为空白。但占空间。 -->
+	<canvas id="stockGraph" width="150" height="150">
+		current stock price: $3.15 + 0.15
+	</canvas>
+	<!-- 同上 -->
+	<canvas id="clock" width="150" height="150">
+		<img src="img/a.png" alt="" width="150" height="150">
+	</canvas>
+</body>
+</html>

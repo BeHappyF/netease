@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>skeleton template</title>
+	<script>
+	var canvas = document.getElementById("myCanvas1");
+	function draw () {
+		if(canvas.getContext) {
+			var ctx = getContext("2d");
+		} 
+	}
+	</script>
+	<style>
+		canvas { border: 1px solid black;}
+	</style>
+</head>
+<!-- 如果将script写在body的最底部，那么可以不用这个onload事件 -->
+<body onload="draw();">
+	<canvas id="myCanvas1" width="150" height="150"></canvas>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fillStyle</title>
+</head>
+<body>
+	<canvas id="canvas" width="150" height="150"></canvas>
+	<script>
+		var canvas = document.getElementById("canvas");
+
+		if(canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+			// i表示行，j表示列。当然他们的对应值应该要加一
+			for(var i=0;i<10;i++) {
+				for(var j=0;j<10;j++) {
+					ctx.fillStyle = 'rgb(0,' + Math.floor(255-25.5*i) + "," + Math.floor(255-25.5*j);
+					// 渲染的顺序是按行来的。一行一行的刷完。
+					ctx.fillRect(j*15,i*15,15,15);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

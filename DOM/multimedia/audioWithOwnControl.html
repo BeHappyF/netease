@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio</title>
+</head>
+<body>
+	<audio id="myAudio">
+		<!-- 本地音乐，相对路径 -->
+		<source src="../../../music/LostWithYou.mp3">
+		Your user agent does not support the HTML5 Audio element.
+	</audio>
+	<button type="button" onclick="aud_play_pause()">Play/Pause</button>
+	<script>
+	 	function aud_play_pause () {
+	 		var myAudio = document.getElementById("myAudio");
+	 		if(myAudio.paused) {
+	 			myAudio.play();
+	 		} else {
+	 			myAudio.pause();
+	 		}
+	 	}
+	</script>
+
+</body>
+</html>

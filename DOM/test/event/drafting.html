@@ -1,6 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drafting</title>
+	<style>
+		#div1 {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #ababab;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+<!-- 最后实现的效果差强人意。大概是我鼠标的问题。-->
+<script>
 var elem = document.getElementById("div1");
+// alert(elem.id);	//div1
 var clientX, clientY, moving;
-var mouseDonwHandler = function (event) {
+var mouseDownHandler = function (event) {
 	event = event || window.event;
 	clientX = event.clientX;	//获得当前div距离浏览器左边的距离
 	clientY = event.clientY;	//获得当前div距离浏览器上边的距离
@@ -31,10 +51,21 @@ var mouseUpHandler = function (event) {
 	moving = !1;
 }
 
+
+var addEvent = document.addEventListener ?
+	function (elem, type, listener, useCapture) {
+		elem.addEventListener(type, listener, useCapture);
+	} :
+	function (elem, type, listener, useCapture) {
+		elem.attachEvent('on' + type, listener);
+	};
 // 这个就是那个兼容的添加事件的函数，不过这里省略了最后一个是否加入捕获阶段的变量。
 // 不过这个变量没有太大的作用。不传入对于函数运行也没有影响。
 // 因为这个变量只会在W3C标准下的add/removeEventListener()方法中使用。
 // 而这个参数是可选的。所以在函数调用时，没有了这个参数。程序也能正常运行。
-addEvent(elem, 'mousedown', mouseDonwHandler);
+addEvent(elem, 'mousedown', mouseDownHandler);
 addEvent(elem, 'mousemove', mouseMoveHandler);
 addEvent(elem, 'mouseup',   mouseUpHandler);
+</script>
+</body>
+</html>

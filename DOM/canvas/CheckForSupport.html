@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Check for support</title>
+</head>
+<body>
+	<canvas id="canvas1"></canvas>
+	<script>
+		var canvas = document.getElementById('tutorial');
+
+		if(cnavas.getContext) {
+			//获得的是：CanvasRenderingContext2D.这是一个关于2d的渲染上下文对象。
+			var ctx = canvas.getContext('2d');
+		} else {
+			//canvas-unsupported code here
+		}
+	</script>
+</body>
+</html>
