@@ -1,27 +1,22 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>test</title>
+	<title>cicle</title>
 </head>
 <body>
-	<canvas id="myCanvas"></canvas>
+	<canvas id="myCanvas" width="300" height="300"></canvas>
 	<script>
-	function draw () {
 		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
 
-		if(canvas.gtContext) {
-			var ctx = canvas.getContext("2d");
-			//draw circle 
-			var path = new Path2D();
-			path.arc(150,150,100,0,Math.PI*2,true);
-			ctx.fillStyle = "#6a83ff";
-			ctx.strokeStyle = "#4d4e53";
-			ctx.fill(path);
-			ctx.stoke(path);
-		}
-	}
+		ctx.beginPath();
+		ctx.arc(150,150,100,0,Math.PI*2);
+		ctx.strokeStyle = "#4d4e53";
+		ctx.stroke();
+		ctx.fillStyle = "#6a83ff";
+		ctx.fill();
+		ctx.closePath();
 	</script>
 </body>
-</html> -->
-
+</html>
