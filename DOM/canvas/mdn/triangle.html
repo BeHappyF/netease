@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Triangle</title>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+	<script>
+		// 该方法是通过path绘制一个图案，方法如下：
+		// beginPath()
+		// Path methods	
+		// closePath()
+		// stroke()
+		// fill()
+		function draw () {
+			var canvas = document.getElementById("canvas");
+
+			if(canvas.getContext) {
+				var ctx = canvas.getContext('2d');
+
+				// 首先要创建一个Path2D对象（这里只讨论2D场景）。
+				var path = new Path2D();
+				// 此语句与上者相同
+				// ctx.beginPath();
+
+				//Path methods
+				// 1.创建一个起始点
+				path.moveTo(75,50);
+
+				// 2.起始点移动到指定位置
+				path.lineTo(100,25);
+				// 3.同上
+				path.lineTo(100,75);
+				// 这里本应该有一个closePath()的语句。作用是：将目前点与起始点之间有线段连接。但是如果最后调用fill()方法，则不需要这一步。如果是stroke()方法，则不可省略。
+
+				// 调用fill()方法前应该有默认调用closePath()方法使成为一个封闭图形。然后实现填充。
+				ctx.fill(path);
+			}
+		}
+	</script>
+</body>
+</html>

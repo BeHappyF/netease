@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test1</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+
+		canvas.width = 1028;
+		canvas.height = 768;
+
+		if(canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			ctx.beginPath();
+
+			ctx.moveTo(100,100);
+			ctx.lineTo(700,700);
+			ctx.lineTo(100,700);
+
+			//省略此语句会发现填充没问题，但是边框少了一条。
+			//closePath()方法和最后的闭合画笔的步骤作用相同。
+			// ctx.closePath();
+			ctx.lineTo(100,100);
+			ctx.closePath();
+
+			
+			ctx.fillStyle = "rgb(2,100,30)";
+			ctx.fill();
+
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "#005588";
+			ctx.stroke();
+
+			// 想法是在同一画布，同一时刻绘制第二条线段。而第二条线段的设置有别于第一次。
+			// 结果并不如意，第一次绘制的蓝色边框同样被改成了黑色。
+			// 原理：canvas的绘制是基于状态的。可以看到上面设置的画笔宽度还在生效，只是第二次同样设置了颜色，覆盖了第一次的。因为绘制状态一直存在，所以会绘制上下的内容。
+			// 解决方法：在两次的绘制步骤的开始和结束部分，分别设置beginPath()和closePath()方法。那么这两次的步骤设置只能够对最近的一次绘制过程（fill()和stroke()，两者都存在也算是一次绘制过程）起作用。
+
+			ctx.beginPath();
+			ctx.moveTo(200,100);
+			ctx.lineTo(700,600);
+			ctx.closePath();
+			ctx.strokeStyle = 'black';
+			// 虽然使用了beginPath()和closePath()方法分隔了两次绘制步骤。但是状态（画笔宽度和颜色）还是保留了下来。这就是基于状态的绘制。
+			ctx.stroke();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rectangle</title>
+</head>
+<body>
+	<!-- 默认为150px高,300px宽 -->
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		//fillRect是画实心长方形
+		ctx.fillRect(30,30,90,90);
+		//clearRect是将长方形内部清空
+		ctx.clearRect(50,50,50,50);
+		//strokeRect则是画边框，
+		ctx.strokeRect(60,60,30,30);
+	</script>
+</body>
+</html>
