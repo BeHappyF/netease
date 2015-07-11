@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var animation = function (ele, attr, from, to) {
+		//起始点与终点之间的距离
+		var distance = Math.abs(to - from);	
+		//每帧运动的距离
+		var stepLength = distance / 100;    
+		//确定运动方向是往左还是往右，往右为正，往左为负。
+		var sign = (to - from) / distance;  
+		//记录当前帧物体的偏移长度。
+		var offset = 0;											
+		var step = function () {
+			//记录下一帧的偏移长度
+			var tmpOffset = offset + stepLength;  
+			if(tmpOffset < distance) {
+				// 通过设置属性具体实现运动。
+				ele.style[attr] = from + tmpOffset * sign + "px";
+				offset = tmpOffset;
+			}	 else {
+				ele.style[attr] = to + "px";
+				clearInterval(intervalID);
+			}
+		}
+		ele.style[attr] = from + "px";
+		// 每10ms调用一次step()函数。并得到对应的id。
+		var intervalID = setInterval(step, 10);
+	}
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fadeout</title>
+	<style>
+		#div {width: 100px;height: 100px;margin: 100px auto;background-color: #005588;}
+	</style>
+</head>
+<body>
+	<div id="div" style="opacity:1"></div>
+	<script type="text/javascript">
+			var fadeout = function () {
+				var div = document.getElementById('div');
+				var opac = div.style.opacity;
+
+				if(opac > 0) {
+					opac -= 0.01;
+					div.style.opacity = opac;
+				} else {
+					clearInterval(setInervalId);
+				}
+			};
+			var setInervalId = setInterval(fadeout, 10);
+	</script>
+</body>
+</html>
+
+<!-- 碰到的问题：
+	我开始判断结束条件是opac !=== 0;但是结果并不如意，opac的值一直减少，没有触发消除定时器的语句。不知道原因。
+
+	解决方式：将判断条件改为 opac > 0.结果正常了。
+ -->
