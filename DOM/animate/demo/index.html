@@ -74,9 +74,11 @@
     var PREV = 0;       //上一张图片索引
     var CURRENT = 0;    //当前图片索引
     var NEXT = CURRENT + 1;//下一张图片的索引
-    var $ = function (id) {
+    // 封装getElementById方法
+    var $ = function (id) { 
         return document.getElementById(id);
     }
+    // 封装从字符串中得到数字的方法
     var getNum = function (str) {
         if (!str) {
             return 0;
@@ -85,45 +87,64 @@
         }
     }
     //进度条动画
+    // 四个参数分别为对象，动画时长，变化的时间间隔，回调函数
     var process = function (prcsswrap, drtn, intrvl, callback) {
-        var width = prcsswrap.clientWidth;
-        var prcss = prcsswrap.getElementsByClassName('prcss')[0];
+        //进度条长度
+        var width = prcsswrap.clientWidth;      
+        //当前进度条对象
+        var prcss = prcsswrap.getElementsByClassName('prcss')[0];  
+        //频数，即要变化的静态帧的数目
         var count = drtn/intrvl;
+        //步长，即相邻静态帧之间的运动距离
         var offset = Math.floor(width/count);
+        //将当前图片索引赋值给变量tmpCurrent
         var tmpCurrent = CURRENT;
+        // step方法，动画的具体实现
         var step = function () {
             if (tmpCurrent !== CURRENT) {
                 prcss.style.width = '0px';
                 return;
             }
+            // 计算下一帧的运动距离
             var des = getNum(prcss.style.width) + offset;
             if (des < width) {
+                // 这里的动画效果是通过改变块级元素的宽度实现的
                 prcss.style.width = getNum(prcss.style.width) + offset + 'px';
-            } else if (des = width) {
+            } else if (des == width) {
+                //下一帧的长度与总运动距离相等时，清除计时器
                 clearInterval(intervalId);
+                //将运动变化设置成初始状态
                 prcss.style.width = '0px';
+                //当前图片的进度条结束，将当前图片的索引赋值给PREV，作为下一个图片进度条的上一图片
                 PREV = CURRENT;
                 CURRENT = NEXT;
+                //保证NEXT的值始终比当前大一
                 NEXT++;
+                //处理从最后的图片跳转到第一张图片。这样当最后的图片成为当前图片时，他的下一张图片应该是第一张，而不是不存在的第7张。
                 NEXT = NEXT%NUMBER;
                 if (callback)
                     callback();
+            //如果下一帧的运动距离大于总长，那么人为设置刚好等于总长。
             } else {
                 prcss.style.width = width + 'px';
             }
         }
+        // 调用setInterval计时器。
         var intervalId = setInterval(step, intrvl);
     };
     //位移动画
     var animation = function (ele, from, to, callback) {
         var distance = Math.abs(to - from);
         var cover = 0;
+        // 确定运动方向。正值为右，负值为左。
         var symbol = (to - from)/distance;
+        //步长。相当于规定好了走完全程需要多少步。也就是静止帧的个数==SPEED/STEP
         var stepLength = Math.floor((distance*STEP)/SPEED);
         var step = function () {
             var des = cover + stepLength;
             if (des < distance) {
                 cover += stepLength;
+                // 因为是绝对定位，所以这里通过改变left属性来获得动画效果
                 ele.style.left = getNum(ele.style.left) + stepLength*symbol + 'px';
             } else {
                 clearInterval(intervalId);
@@ -137,11 +158,14 @@
     //与DOM相关的操作要在页面加载完全之后执行
     window.onload = function () {
         var imgwrap = $('imgwrap');
+        // 图片元素节点集合
         var imgs = imgwrap.children;
+        // 小导航图片的集合
         var navswrap = $('navswrap');
         var navs = navswrap.children;
         //图片轮播动画
         var slide = function (drtn, intrvl, callback) {
+            // 向左运动，所以是负？不清楚。。
             var from = -PREV*1224;
             var to = -CURRENT*1224;
             animation(imgwrap, from, to, callback);
@@ -150,6 +174,10 @@
         var goOn = function (drtn, intrvl) {
             var currentNav = navs[CURRENT];
             var prcsswrap = currentNav.getElementsByClassName('prcsswrap')[0];
+            // 这里使用到了回调函数：回调函数就是在当前的函数运行完了之后，再调用回调函数。而这个回调函数作为一个参数传入，能够解耦合。
+            // 这里的场景也刚好是回调函数的用武之地。进度条走完，调用图片位移。
+            // 然后轮播图片的函数也实现一个回调，并且是最外面的goOn函数。所以页面能够一直自动的做动画。
+            // 顺序：当前进度条 -> 当前轮播图 -> 下一个进度条 -> 下一个轮播图...
             process(prcsswrap, drtn, intrvl, function () {
                 slide(drtn, intrvl, function () {
                     goOn(drtn, intrvl);
@@ -157,9 +185,12 @@
             });
         }
         //响应点击
+        // 通过给导航小图片的父节点注册事件。冒泡的方式给所有小图片添加了事件监听。
         $('navswrap').addEventListener('click', (function () {
             var getElement = function (eve, filter) {
+                // 获得事件触发节点，没有实现兼容
                 var element = eve.target;
+
                 while (element) {
                     if (filter(element))
                         return element;
@@ -168,12 +199,16 @@
             }
             return function (event) {
                 var des = getElement(event, function (ele) {
+                    // 判断是否点击到了小的导航图片
                     return (ele.className.indexOf('navwrap') !== -1);
                 })
+                // 通过储存在在轮播图上的数据获得当前的图片索引
                 var index = parseInt(des.dataset.index);
+                // 将手动跳转之间的图片赋值给prev
                 PREV = CURRENT;
                 CURRENT = index;
                 NEXT = (CURRENT+1)%NUMBER;
+                // 这里需要先实现轮播到指定的图片，然后才开始进度条的动画
                 slide(DURATION, INTERVAL, function () {
                     goOn(DURATION, INTERVAL);
                 });
