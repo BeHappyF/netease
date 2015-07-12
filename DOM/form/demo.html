@@ -1,0 +1,92 @@
+<form id="f">
+	<!-- 表单下的子孙表单控件 -->
+	<p><label><input name="a"></label></p>								
+	<p><select name="b"><option>1</option></select></p>
+</form>
+<!-- 不归属的表单的控件 -->
+<p><label><input name="c"></label></p>
+<!-- 设置了form属性，并且值为表单的id值，所以是归属于表单的控件 -->
+<p><label><input name="d" form="f"></label></p>
+
+
+
+<form name="test">
+	<input name="a">
+	<input name="b">
+</form>
+
+<!-- 
+	开始的处理：var testForm = document.forms[0];
+	访问的方式有如下几种：
+	①testForm.elements[0] 			
+		通过elements集合索引访问
+	②testForm.elements['a']
+		通过elements集合控件名称属性访问
+	③testForm[0]
+		通过对象本身属性下的索引
+	④testForm['a']
+		对象本身属性下的的控件name或id
+ -->
+
+
+<form name="test">
+	<img id="a" src="./test.png">
+	<input name="a">
+</form>
+
+
+<!-- 
+	testForm['a']返回的是下面的。
+	但是如果将下面的表单控件去除，那么同样的查询语句会返回img元素，但是只限于id为查询参数相同的项目。
+ -->
+
+<form name="test">
+	<input name="a">
+</form>
+
+<!-- 
+	通过任意下列方式获取到了表单控件
+	testForm['a'];
+	testForm.elements['a'];
+
+	修改表单控件的名称
+	testForm['a'].name = 'b';
+
+	通过访问未修改前的表单名称，照常能够访问修改后的饿控件
+	testForm['a'] 			//<input name="b">
+	
+	很容易理解：elements是一个动态集合。
+	testForm.elements['a']   //null
+
+ -->
+
+<script>
+	input.addEventListener(
+		'invalid',	function (event) {
+			var target = event.target;
+			if(target.validity.valueMissing) {
+				target.setCustomValidity('请输入姓名！');
+			}
+		})
+</script>
+
+
+<form action="./api" method="post" novalidate>
+	<label>电话：<input type="number" name="tel"></label>
+	<button>提交</button>
+</form>
+
+<!-- 
+	这form标签内添加novalidate属性，可以禁止此表单内所有的的验证。
+	如果想要对指定的表单控件进行禁止验证的操作，可以在相应的标签内添加formnovalidate属性
+ -->
+
+
+
+
+
+
+
+
+
+
