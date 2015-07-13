@@ -86,9 +86,16 @@ form
 			-iframe
 
 
-
-
-
+select 
+	对象集合
+		-options[]	返回包含下拉列表的所有选项的一个数组
+	方法
+		-add() 	 		向下拉列表添加一个选项
+		-remove() 	向下拉列表删除一个选项
+		-blur()
+		-focus()
+	事件
+		-change			当改变选择时调用的事件
 
 
 

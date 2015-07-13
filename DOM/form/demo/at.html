@@ -31,6 +31,7 @@
     <form class="demo" name="demoForm">
       <textarea name="content"></textarea>
       <p><input type="button" value="提交"/></p>
+      <!-- 不太明白这个的作用 -->
       <div class="m-hack" id="hackDiv"></div>
     </form>
     <ul class="m-list" id="nameList" style="display:none;">
@@ -90,10 +91,14 @@
                     // cursor为@符号的索引位置+1
                     cursor = target.selectionStart; 
                 if (target.value.charAt(cursor-1)==='@'){
+                    // 获得@符号之前的所有字符串的值
                     var value = target.value.substr(0,cursor);
                     doShowAtList(
+                        // 第一个参数返回一个对象，属性包括绝对定位的列表的top，left属性
+                        // 第二个参数是一个回调函数，
                         getPosition(value),function(name){ 
                             var end = cursor+name.length; 
+                            // 为什么这个方法找不到
                             target.setRangeText(
                                 name,cursor,end,'end'
                             );

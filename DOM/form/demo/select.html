@@ -7,6 +7,7 @@
       .demo select{width:200px;margin-right:10px;}
     </style>
     <script>
+        // 一个封装的兼容IE低版本的添加事件函数。
         function addEvent(node,event,handler){
             if (!!node.addEventListener){
                 node.addEventListener(event,handler,!1);
@@ -49,11 +50,14 @@
         var demoForm = document.forms.demoForm;
         // 填充选择器
         function fillSelect(select,list){ 
+            // 这一个循环是为了消除可能存在的其他的项目，只留一项：即第一项。
             for(var i=select.length-1;i>0;i--){ 
                 select.remove(i); 
             }
             for(var i=0,l=list.length,data;i<l;i++){
                 data = list[i];
+                // 创建一个option元素，select只能够添加option或者optgroup元素
+                // 第二个参数很容易想到是元素的value属性
                 var option = new Option(
                     data.text,data.value
                 ); 
