@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<script>
+	var checkAll = document.getElementById('checkAll');
+
+	var label = document.getElementsByTagName('dt')[0].getElementsByTagName('a')[0];
+
+	var antiCheck = document.getElementsByTagName('a')[0];
+
+	var checkBoxs = document.getElementsByTagName('input');
+
+	checkAll.onclick = function () {
+		allCheck(this.checked);
+		label.innerHTML = this.checked ? "全不选" : "全选";
+	};
+
+	antiCheck.onclick = function () {
+		for(var i=1; i<checkBoxs.length; i++) {
+			checkBoxs[i].checked = !checkBoxs[i].checked;
+		}
+		checkAllCheck();
+	}
+	</script>
+</body>
+</html>

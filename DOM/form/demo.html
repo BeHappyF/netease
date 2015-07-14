@@ -82,6 +82,73 @@
  -->
 
 
+<form name="file">
+	<input type="file" name="image">
+</form>
+
+<!-- 
+	通过普通的方式无法将选中的文件(图片，音乐)内容删除：
+		fileForm['image'].value = '';   //此方式无效
+	以下方式可以：
+		fileForm.reset();
+ -->
+
+<select name="course">
+	<option>课程选择</option>
+	<optgroup label="1. DOM基础">
+		<option value="1.1">1.1 文档树</option>
+		<option value="1.2">1.2 节点操作</option>
+	</optgroup>
+	<optgroup label="2. 事件模型">
+		<option value="2.1">2.1 事件类型</option>
+		<option value="2.2">2.2 事件模型</option>
+	</optgroup>
+</select>
+
+
+<!-- 
+	完成目标：在1.1之前插入一个选项
+	方法一：var opiton = new Option('1.0 概述','1.0');
+				 option.insertAdjacentElement('beforeBegin',option);
+	注：这里的第一个参数有四个值：
+		beforebegin：在元素的开始标签位置之前插入。
+		beforeend：  在元素的结束标签位置之前插入。
+		afterbegin： 在元素的开始标签位置之后插入。
+		afterend：   在元素的结束标签位置之后插入。
+	方法二：select.add(option,opt11);
+ -->
+
+<!-- 
+	完成目标：删除1.2选项
+	方法一：opt12.parentNode.removeChild(opt12);
+	方法二：select.remove(1);   //通过索引值查找
+ -->
+
+<form action="./api" method="post">
+	<p><label>姓名：<input name="username" required></label></p>
+	<p><button>submit</button></p>
+</form>
+
+
+<!-- 
+	required指定该表单信息必须填写，否则报错。
+	报错的信息由浏览器指定，如果想要自定义。可以在表单元素注册一个invalid事件。具体代码：
+ -->
+
+ <script>
+ 	input.addEventListener(
+ 		'invalid',function (event) {
+ 			var target = event.target;
+ 			if(target.validity.valueMissing) {
+ 				target.setCustomValidity('请输入姓名');
+ 			}
+ 		})
+ </script>
+
+
+
+
+
 
 
 

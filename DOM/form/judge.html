@@ -1,0 +1,45 @@
+<!-- 这是别的同学的一个成果，需要进一步修改 -->
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="utf-8" />
+    <title>禁止单个可验证元素</title>
+    <style type="text/css">
+    </style>
+</head>
+ 
+<body>
+    <form name="form_test" target="_blank" action="./api">
+        <input type="text" class="formnovalidate" name="a" required/>
+        <input type="email" class="formnovalidate" name="b" required/>
+        <input type="url" name="c" required/>
+        <button>Submit</button>
+    </form>
+    <script type="text/javascript">
+    function log(info) {
+            // alert(info)
+            console.log(info)
+            document.write(info + "<br>");
+        }
+        /**
+         * 思路：在不想做验证元素上加一个class formnovalidate
+         */
+    var form = document.getElementById("form_test");
+    var formnovalidateList = document.getElementsByClassName('formnovalidate');
+    for (var i = formnovalidateList.length - 1; i >= 0; i--) {
+        var invalidFunc = function(event) {
+            e = event || window.event;
+            if (e.preventDefault) {
+                e.preventDefault();
+            } else {
+                event.returnValue = false;   
+            }
+            alert("拦截验证");
+        };
+        formnovalidateList[i].addEventListener('invalid', invalidFunc, true);
+    };
+    </script>
+</body>
+ 
+</html>

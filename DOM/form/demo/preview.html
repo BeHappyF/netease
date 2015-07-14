@@ -43,6 +43,7 @@
             if (!window.FileReader){
                 throw 'Browser not support File API !';
             }
+            // 原型链：FileReader -> EventTarget -> Empty
             var reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function(event){
