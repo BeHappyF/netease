@@ -1,0 +1,304 @@
+
+::selection {
+    background-color: #24b694;
+    color: #fff;
+    }
+::-moz-selection {
+    background-color: #24b694;
+    color: #fff;
+    }
+		
+
+body {
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+  font-family: "Play", sans-serif;
+    }
+
+body:after {
+    content: " ";
+    position: absolute;
+    background-image: url('./img/index.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    }
+
+body:hover:after {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    }
+
+.profile-card {
+    width: 340px;
+    margin: 7% 25%;
+    z-index: 11;
+    position: fixed;
+    -moz-transition: 0.5s linear 0s;
+    -o-transition: 0.5s linear 0s;
+    -webkit-transition: 0.5s linear 0s;
+	 -moz-transform: translate(55px, 55px);
+    -ms-transform: translate(55px, 55px);
+    -o-transform: translate(55px, 55px);
+    -webkit-transform: translate(55px, 55px);
+    transform: translate(55px, 55px);
+    transition: 0.5s linear 0s;
+    }
+
+.profile-card:hover {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -moz-box-shadow: 30px 30px 3px rgba(0, 0, 0, 0.31);
+    -webkit-box-shadow: 30px 30px 3px rgba(0, 0, 0, 0.31);
+    box-shadow: 30px 30px 3px rgba(0, 0, 0, 0.31);
+    -moz-transition: 0.5s linear 1.5s;
+    -o-transition: 0.5s linear 1.5s;
+    -webkit-transition: 0.5s linear 1.5s;
+    transition: 0.5s linear 1.5s;
+    }
+
+.profile-card:hover header {
+    padding: 20px 0 63px;
+    -moz-transition: 0.5s linear 0s;
+    -o-transition: 0.5s linear 0s;
+    -webkit-transition: 0.5s linear 0s;
+    transition: 0.5s linear 0s;
+    }
+
+.profile-card:hover header h1, .profile-card:hover header h2 {
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    -moz-transition: 0.5s linear 0s;
+    -o-transition: 0.5s linear 0s;
+    -webkit-transition: 0.5s linear 0s;
+    transition: 0.5s linear 0s;
+    }
+
+.profile-card:hover header img {
+    height: 80px;
+    -moz-transform: translate(0) rotate(-45deg);
+    -ms-transform: translate(0) rotate(-45deg);
+    -o-transform: translate(0) rotate(-45deg);
+    -webkit-transform: translate(0) rotate(-45deg);
+    transform: translate(0) rotate(-45deg);
+    -moz-transition: 0.5s linear 0s;
+    -o-transition: 0.5s linear 0s;
+    -webkit-transition: 0.5s linear 0s;
+    transition: 0.5s linear 0s;
+    -moz-box-shadow: 5px 7px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 5px 7px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 7px 3px rgba(0, 0, 0, 0.3);
+    }
+
+.profile-card:hover .profile-bio {
+    -moz-transform: perspective(350px) rotatex(0deg);
+    -ms-transform: perspective(350px) rotatex(0deg);
+    -o-transform: perspective(350px) rotatex(0deg);
+    -webkit-transform: perspective(350px) rotatex(0deg);
+    transform: perspective(350px) rotatex(0deg);
+    -moz-transition: 0.5s linear 0.5s;
+    -o-transition: 0.5s linear 0.5s;
+    -webkit-transition: 0.5s linear 0.5s;
+    transition: 0.5s linear 0.5s;
+    }
+
+.profile-card:hover .profile-social-links {
+    -moz-transform: perspective(350px) rotatex(0deg);
+    -ms-transform: perspective(350px) rotatex(0deg);
+    -o-transform: perspective(350px) rotatex(0deg);
+    -webkit-transform: perspective(350px) rotatex(0deg);
+    transform: perspective(350px) rotatex(0deg);
+    -moz-transition: 0.5s linear 1s;
+    -o-transition: 0.5s linear 1s;
+    -webkit-transition: 0.5s linear 1s;
+    transition: 0.5s linear 1s;
+    }
+
+header {
+    padding: 20px 0;
+    background-color: #24B693;
+    -moz-transition: 0.5s linear 1.5s;
+    -o-transition: 0.5s linear 1.5s;
+    -webkit-transition: 0.5s linear 1.5s;
+    transition: 0.5s linear 1.5s;
+    }
+
+header img {
+    -moz-transform: translate(95px, -85px) rotate(-45deg);
+    -ms-transform: translate(95px, -85px) rotate(-45deg);
+    -o-transform: translate(95px, -85px) rotate(-45deg);
+    -webkit-transform: translate(95px, -85px) rotate(-45deg);
+    transform: translate(95px, -85px) rotate(-45deg);
+    display: block;
+    -moz-transition: 0.5s linear 1.5s;
+    -o-transition: 0.5s linear 1.5s;
+    -webkit-transition: 0.5s linear 1.5s;
+    transition: 0.5s linear 1.5s;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 2px solid #eceaea;
+    height: 90px;
+    float: left;
+    margin: 16px 30px 16px 25px;
+    -moz-box-shadow: -8px 9px 3px rgba(0, 0, 0, 0.3));
+    -webkit-box-shadow: -8px 9px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: -8px 9px 3px rgba(0, 0, 0, 0.3);
+    }
+
+header img:hover {
+    -moz-transform: scale(1.1) rotate(-45deg);
+    -ms-transform: scale(1.1) rotate(-45deg);
+    -o-transform: scale(1.1) rotate(-45deg);
+    -webkit-transform: scale(1.1) rotate(-45deg);
+    transform: scale(1.1) rotate(-45deg);
+    -moz-box-shadow: 7px 8px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 7px 8px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 7px 8px 3px rgba(0, 0, 0, 0.3);
+    }
+
+header h1 {
+    display: inline-block;
+    /*新加的属性,这里的margin-left必须要和translate的水平移动距离相等*/
+    margin-left: 67px;
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(51, 51, 51, 0.5);
+    -moz-transform: translate(-67px, 9px);
+    -ms-transform: translate(-67px, 9px);
+    -o-transform: translate(-67px, 9px);
+    -webkit-transform: translate(-67px, 9px);
+    transform: translate(-67px, 9px);
+    /*-moz-transform: translate(-75px, 9px);
+    -ms-transform: translate(-75px, 9px);
+    -o-transform: translate(-75px, 9px);
+    -webkit-transform: translate(-75px, 9px);
+    transform: translate(-75px, 9px);*/
+    -moz-transition: 0.5s linear 1.5s;
+    -o-transition: 0.5s linear 1.5s;
+    -webkit-transition: 0.5s linear 1.5s;
+    transition: 0.5s linear 1.5s;
+    }
+
+header h2 {
+    /*新加的属性*/
+    text-indent: -7.2em;
+
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #FFF;
+    text-shadow: 0 1px 1px rgba(51, 51, 51, 0.5);
+    -moz-transform: translate(-26px, 9px);
+    -ms-transform: translate(-26px, 9px);
+    -o-transform: translate(-26px, 9px);
+    -webkit-transform: translate(-26px, 9px);
+    transform: translate(-26px, 9px);
+    -moz-transition: 0.5s linear 1.5s;
+    -o-transition: 0.5s linear 1.5s;
+    -webkit-transition: 0.5s linear 1.5s;
+    transition: 0.5s linear 1.5s;
+    }
+
+.profile-bio, .profile-social-links {
+    -moz-transform-origin: 50% 0%;
+    -ms-transform-origin: 50% 0%;
+    -o-transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -moz-transform: perspective(250px) rotatex(-90deg);
+    -ms-transform: perspective(250px) rotatex(-90deg);
+    -o-transform: perspective(250px) rotatex(-90deg);
+    -webkit-transform: perspective(250px) rotatex(-90deg);
+    transform: perspective(250px) rotatex(-90deg);
+    }
+
+.profile-bio {
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 27px 10px;
+    color: #5C5959;
+    font-weight: 500;
+    text-align: center;
+    -moz-transition: 0.5s linear 1s;
+    -o-transition: 0.5s linear 1s;
+    -webkit-transition: 0.5s linear 1s;
+    transition: 0.5s linear 1s;
+    background-color: #fff;
+    }
+
+.profile-bio ul {
+    }
+
+.profile-bio ul li {
+    list-style-type: none;
+    text-align: left;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.profile-bio a {
+    text-decoration: none;
+    color: #24b694;
+}
+.profile-social-links {
+    margin-top: 0px;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #24b694;
+    -moz-transition: 0.5s linear 0.5s;
+    -o-transition: 0.5s linear 0.5s;
+    -webkit-transition: 0.5s linear 0.5s;
+    transition: 0.5s linear 0.5s;
+    }
+
+.profile-social-links li {
+    display: inline-block;
+    margin: 0 16px;
+    }
+
+.profile-social-links a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 5px;
+	color: #fff;
+	font-size: 29px;
+    z-index: 2;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    }
+
+.profile-social-links a:hover {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    text-shadow: 5px 4px 1px rgba(0, 0, 0, 0.3);
+    }
+
