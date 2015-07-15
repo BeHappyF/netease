@@ -4,40 +4,48 @@
 	<meta charset="UTF-8">
 	<title>login</title>
 	<style>
-		body, button, input, legend{margin: 0;padding: 0;font: 16px "微软雅黑";}
-		.m-form{margin: 150px auto;width: 325px;border: 1px solid #ddd;}
-		.m-form legend{width: 100%;line-height: 30px;text-indent: 1em;color: #fff;background-color: #2d2d2d;}
-		.m-form fieldset{border: none;padding: 20px;}
-		.m-form div{margin: 20px;}
-		.m-form button{width: 100%;height: 30px;color: #fff;border: 1px solid #ddd;cursor: pointer;background-color: #2d7dca;}
-		.m-form .msg{margin:5px;text-align:center;display:none;}
-		.m-form .tip{padding-left:6em;font-size:12px;color:#C0C0C0;}
-		.m-form .j-err{display:block;color:#FF0000;}
-		.m-form .j-suc{display:block;color:#158226;}
-		.m-form .u-txt{width: 160px;padding: 3px;border:1px solid #aaa;}
-		.m-form .j-error{border-color: #f00;background-color: #FFE7E7;}
-		.m-form .j-disabled{cursor: default;background-color: #ddd;}
+		body,button,legend {margin: 0;padding: 0;font: 16px "Microsoft Yahei";}
+		.m-form {width: 300px;margin:100px auto;border:1px solid #eee;/*box-shadow: 3px 2px 1px #ddd;*/border-radius: 3px;}
+		/*text-align在这里不起作用，但是如果将legend的宽度设置成100%就有效了。
+		我查了一下：legend是块级元素，但是调试器内显示的宽度却是内容的宽度。所以这里默认的auto宽度无法实现居中对齐。*/
+		/*border-radius设置的顺序是：左上，右上，右下，左下。*/
+		.m-form legend {text-align: center;width:100%;line-height: 40px;background-color: #2d2d2d;color: #fff;border-radius: 3px 3px 0 0;}
+		/*第一个设置border属性是为了消除默认属性。*/
+		.m-form fieldset {border: none;padding: 20px;}
+		.m-form div {margin:10px;}
+		.m-form button {width: 235px;line-height: 25px;color: #fff;border:1px solid #ddd;cursor:pointer;background-color: #2d7dca;border-radius: 2px;}
+		.m-form .msg {margin: 5px; text-align: center;display: none;}
+		/*这里发现无法设置比12更小的值，当然0有效，文字消失了。但是这里如果设置1-11,文字大小不会改变。*/
+		.m-form .tip {padding-left: 6em;font-size: 12px;color: #C0C0C0;}
+		.m-form .u-txt {width: 160px;}
+		.m-form .j-err {display: block;color: #FF0000;}
+		.m-form .j-suc {display: block;;color: #158226;}
+		.m-form .j-error {border-color: #f00; background-color: #ffe7e7;}
+		.m-form .j-disabled {cursor: default;background-color: #ddd;}
 	</style>
 </head>
 <body>
-	<form action="./login" class="m-form" name="loginForm" target="result" autocomplete="off">
+	<!-- 这是正常的块级元素，默认宽度为auto，占据父容器的全部宽度。 -->
+	<div style="text-align:center">sadfjl</div>
+	<form action="/login" id="loginForm" class="m-form" target="result" autocomplete="off">
 		<legend>手机号码登录</legend>
 		<fieldset>
 			<div class="msg" id="message"></div>
 			<div>
-				<label for="telephone">手机号：</label>
-				<input type="tel" id="telphone" name="telphone" class="u-txt" maxlength="11" required patter="^0?(12[0-9]|15[0123456789|18[0236789]|14[57])[0-9]{8}$"><br>
+				<label for="mobile">手机号：</label>
+				<input id="mobile" name="mobile" type="tel" class="u-txt" maxlength="11" required pattern="^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$">
 				<span class="tip">11位数字手机号码</span>
 			</div>
 			<div>
-				<label for="password">密 码：</label>
-				<input type="password" id="password" class="u-txt"><br>
+				<!-- 密码两字之间的宽度刚好是一个字符的宽度。不知道是怎么打的。我是直接拷贝的。有别于两个空格长度。因为两个空格长度会被省略掉一个。要设置word-spacing属性才行。 -->
+				<label for="password">密　码：</label>
+				<input id="password" name="password" type="password" class="u-txt">
 				<span class="tip">至少6位，同时包括数字和字母</span>
-				<div><button name="loginBtn">登 录</button></div>
 			</div>
+			<div><button name="loginBtn">登  录</button></div>
 		</fieldset>
 	</form>
-	<iframe name="result" id="result" style="display:none"></iframe>
+	<iframe name="result" id="result" style="display:none;"></iframe>
 	<script>
 		(function () {
 			var form = document.forms.loginForm,
@@ -46,62 +54,71 @@
 			function md5 (msg) {
 				return msg;
 			}
-			// 显示提示信息
-			function showMessage (clazz, msg) {
-				if(!clazz) {
+
+			function showMessage (klass, msg) {
+				// 这个if不太理解
+				if(!klass) {
 					nmsg.innerHTML = '';
 					nmsg.classList.remove('j-suc');
 					nmsg.classList.remove('j-err');
 				} else {
+					// 不知道将两个顺序调整之后会怎样，等会试试
 					nmsg.innerHTML = msg;
-					nmsg.classList.add(clazz);
+					nmsg.classList.add(klass);
 				}
 			}
-			// 使提交无效，防止重复提交
+
 			function disableSubmit (disabled) {
+				// 通过表单控件的name值访问到相应的控件
 				form.loginBtn.disabled = !!disabled;
+				// 如果disabled为真，则是添加样式
 				var method = !disabled?'remove':'add';
+				// 这里可以看出不论是属性还是方法。他们的访问形式都有两种。一种"."，另外就是[strFunc]。其实也很好理解，javascript中方法和属性都是储存在栈中，方法的名称只是一个引用。指向堆中方法的具体代码。
 				form.loginBtn.classList[method]('j-disabled');
 			}
-			// 使输入无效
+
 			function invalidInput (node, msg) {
+				// 在处理错误信息的div块添加内容，修改样式
 				showMessage('j-err', msg);
 				node.classList.add('j-error');
+				// 将焦点对准出错的项
 				node.focus();
 			}
-			// 使提交功能还原
+
 			function clearInvalid (node) {
 				showMessage();
 				node.classList.remove('j-error');
 			}
-
-			form.telephone.addEventListener(
-				'invalid',function (event) {
+			// 这里会对所有的号码错误输入提示相同的信息提示
+			form.mobile.addEventListener(
+				'invalid', function(event) {
+					// 当提交出错的时候，阻止浏览器默认的错误处理
 					event.preventDefault();
-					var input = form.telphone;
-					invalidInput(input,'请输入正确的电话号码');
+					var input = form.mobile;
+					invalidInput(input,"请输入正确的手机号码");
 				});
-
+			// 在检测到有错误的表单控件有重新输入的事件后，将之前添加的错误样式清楚，并使提交按钮功能还原
 			form.addEventListener(
-				'input',function  (event) {
-					clearInvalid(event.target)；
+				'input',function(event) {
+					clearInvalid(event.target);
 					disableSubmit(false);
 				});
 
 			form.addEventListener(
-				'submit',function (event) {
+				'submit', function(event) {
 					var input = form.password,
 							pswd 	= input.value,
 							emsg  = '';
-					if(pswd.length<6) {
+					// 这里是对错误提示信息做出细分
+					if(pswd.length < 6) {
 						emsg = "密码长度必须大于6位";
-					} else if (!/\d/.test(pswd) || !/[a-z]/i.test(pswd)) {
+					} else if(!/\d/.test(pswd)) {
 						emsg = "密码必须包含数字和字母";
 					}
-
+					//密码验证不通过
 					if(!!emsg) {
 						event.preventDefault();
-						invalidInput(input, emsg);
+						invalidInput(input,emsg);
 						return;
 					}
 					input.value = md5(pswd);
@@ -110,19 +127,21 @@
 				});
 
 			var frame = document.getElementById('result');
-			frame.addEventListener('load',function (event) {
-				try {
-					var result = JOSON.parse(frame,contentWindow.document.body.textContent);
-
-					disableSubmit(false);
-					if(result.code === 200) {
-						showMessage('j-suc','登录成功！');
-						form.reset();
+			frame.addEventListener(
+				'load',function (event) {
+					try {
+						var result = JSON.parse(frame.contentWindow.document.body.textContent);
+						// 还原登录按钮状态
+						disableSubmit(false);
+						// 识别登录结果
+						if(result.code === 200) {
+							showMessage('j-suc', '登录成功！');
+							form.reset();
+						}
+					} catch(ex){
+						//ignore
 					}
-				}catch(ex) {
-					//asdjfl
-				}
-			});
+				});
 		})();
 	</script>
 </body>

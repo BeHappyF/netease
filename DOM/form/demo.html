@@ -146,9 +146,20 @@
  </script>
 
 
+<form action="./api" method="post">
+	<p><input name="isindex"></p>
+	<p><input name="a"></p>
+	<p><button>submit</button></p>
+</form>
 
+<!-- 
+	编码方式为application/x-www-form-urlencoded
+	作为表单的第一个提交元素,提交时只发送value值，不包含name
+	例：如果在两个输入框内分别输入：111和222
+	那么在提交之后的结果会是：111&a=222。少了第一个表单控件的名称
 
-
+	当然如果简单的将两个text表单控件换位置的话，就能够正常的传递，结果如下：a=222&isindex=111
+ -->
 
 
 

@@ -162,7 +162,7 @@ form
 表单提交
 	隐式提交
 		-如：聚焦在输入框时按回车提交表单
-		-满足以下任意条件：
+		-满足以下任一条件：
 			表单有非禁用的提交按钮
 			没有提交按钮时，不超过一个类型为text,search,url,email,passwor,date,time,number的input元素
 
@@ -180,31 +180,30 @@ form
 			-text/plain
 
 		③特殊案例
+			-name="isindex" && type="text"
+				编码方式为application/x-www-form-urlencoded
+				作为表单的第一个提交元素,提交时只发送value值，不包含name
 			- name = "_charset_" && type = "hidden"
 				没有设置value值
 				提交时value自动用当前提交的字符集填充
 
-		④onsubmit
-			-表单提交事件
-			-提交之前的数据验证
-			-阻止事件的默认行文可取消表单提交
+		④submit（）
+		作用：不通过页面的提交按钮而是通过程序的方式提交表单。
+
+			onsubmit
+				-在form.submit();时会被触发。
+				-表单提交事件
+				-提交之前的数据验证
+				-阻止事件的默认行文可取消表单提交
 
 		⑤无刷新表单提交
+		  常见的是Ajax。
 			-form
 			-target
 			-iframe
 
-
-select 
-	对象集合
-		-options[]	返回包含下拉列表的所有选项的一个数组
-	方法
-		-add() 	 		向下拉列表添加一个选项
-		-remove() 	向下拉列表删除一个选项
-		-blur()
-		-focus()
-	事件
-		-change			当改变选择时调用的事件
+表单应用
+	
 
 
 
