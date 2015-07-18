@@ -13,13 +13,13 @@ body {
     z-index: 1;
     overflow: hidden;
     height: 100%;
-  font-family: "Play", sans-serif;
+    font-family: "Play", sans-serif;
     }
 
 body:after {
     content: " ";
     position: absolute;
-    background-image: url('./img/index.jpg');
+    /*background-image: url('./img/index.jpg');*/
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
@@ -43,8 +43,11 @@ body:hover:after {
     }
 
 .profile-card {
+    /*改*/
+    display: none;
     width: 340px;
-    margin: 7% 25%;
+    /**/
+    margin: 3% 25%;
     z-index: 11;
     position: fixed;
     -moz-transition: 0.5s linear 0s;
@@ -250,6 +253,7 @@ header h2 {
     }
 
 .profile-bio ul {
+    margin: 10px 40px;
     }
 
 .profile-bio ul li {
@@ -285,7 +289,7 @@ header h2 {
     text-decoration: none;
     margin: 0 5px;
 	color: #fff;
-	font-size: 29px;
+	font-size: 14px;
     z-index: 2;
     -moz-transition: 0.5s ease;
     -o-transition: 0.5s ease;

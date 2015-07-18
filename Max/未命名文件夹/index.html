@@ -1,0 +1,391 @@
+<!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tests</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./reset.css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="./main.css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/book.css" />
+  <script src="js/modernizr.custom.js"></script>
+  <style>
+   .component {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+   }
+   nav {
+    background-color: rgba(20,20,20,0.5);
+    height: 50px;
+   }
+   nav #control {
+      width: 625px;
+      margin: 0 auto;
+   }
+   nav #control li {
+    cursor:pointer;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    display: inline-block;
+    line-height: 50px;
+    color: #fff;
+   }
+   .show {
+    display: block;
+   }
+   .hidden{
+    display: none;
+   }
+
+   /*bird*/
+   .bird {
+       display: block;
+       position: relative;
+       width: 41px;
+       height: 27px;
+       background-size: 41px;
+       background-position: 0 0;
+       background-repeat: no-repeat;
+
+       transition: transform 3s ease-in-out;
+       -ms-transition: -ms-transform 3s ease-in-out;
+       -webkit-transition: -webkit-transform 3s ease-in-out; /* For Safari 3.1 to 6.0 */
+
+       transform: translate(-41px,-27px);
+       -ms-transform: translate(-41px,-27px);
+       -webkit-transform: translate(-41px,-27px);
+   }
+   .bird-intro {
+       transform: translate(65px,289px);
+       -ms-transform: translate(65px,289px); /* IE 9 */
+       -webkit-transform: translate(65px,289px); /* Chrome, Safari, Opera */
+   }
+   .bird-moving {
+      background-image: url(./img/cardinal_moving.gif);
+      z-index: 1000;
+   }
+   .bird-static {
+      background-image: url(./img/cardinal_static.gif);
+       z-index: 100;
+   }
+   .bird-leave{
+       background-image: url(./img/cardinal_moving.gif);
+       z-index: 1000;  
+     
+       transform: translate(2000px,50px);
+       -ms-transform: translate(2000px,50px); /* IE 9 */
+       -webkit-transform: translate(2000px,50px); /* Chrome, Safari, Opera */
+   }
+  </style>  
+</head>
+<body>
+  <!-- 头部导航 -->
+  <nav>
+    <ul id="control">
+      <li data-index="0">首页</li>
+      <li data-index="1">概况</li>
+      <li data-index="2">院系设置</li>
+      <li data-index="3">师资队伍</li>
+      <li data-index="4">招生就业</li>
+      <li data-index="5">服务信息</li>
+    </ul>
+  </nav>
+  <!-- 图书 -->
+  <div class="component hidden" id="book">
+        <ul class="align">
+          <li>
+            <figure class='book'>
+              <!-- Front -->
+              <ul class='hardcover_front'>
+                <li>
+                  <div class="coverDesign blue">
+                    <h1>查询详细信息</h1>
+                    <p></p>
+                  </div>
+                </li>
+                <li></li>
+              </ul>
+              <!-- Pages -->
+              <ul class='page'>
+                <li></li>
+                <li>
+                  <a class="btn" href="#">查看具体内容</a>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <!-- Back -->
+              <ul class='hardcover_back'>
+                <li></li>
+                <li></li>
+              </ul>
+              <ul class='book_spine'>
+                <li></li>
+                <li></li>
+              </ul>
+            </figure>
+          </li>
+        </ul>
+      </div>
+  <!-- 主要内容 -->
+  <div class="main">
+    <aside class="profile-card" style="display:block">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>首页</h1>
+        <h2>规格严格，功夫到家</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><a href="#">再见，我的大学</a></li>
+          <li><a href="#">95周年校庆</a></li>
+          <li><a href="#">最美笔记评选</a></li>
+          <li><a href="#">哈工大与中国机器人</a></li>
+          <li><a href="#">夏来了</a></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+    <aside class="profile-card">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>概况</h1>
+        <h2>哈工大精神</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><a href="#">铭记责任，竭诚奉献的爱国精神</a></li>
+          <li><a href="#">求真务实，崇尚科学的求是精神</a></li>
+          <li><a href="#">海纳百川，协作攻关的团结精神</a></li>
+          <li><a href="#">自强不息，开拓创新的奋进精神</a></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+    <aside class="profile-card">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>院系</h1>
+        <h2>热门院系早知道</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><a href="#">航天学院</a></li>
+          <li><a href="#">机电工程学院</a></li>
+          <li><a href="#">电子与信息工程学院</a></li>
+          <li><a href="#">电气工程及自动化学院 </a></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+    <aside class="profile-card">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>教师</h1>
+        <h2>十年树木，百年树人</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><p>截至2009年9月，校本部专任教师总数为2589人，其中正高职798人，占教师总数的30.8%，副高职951人，占教师总数的36.7%；博士生导师838人；有博士学位的教师1661人，占教师总数的64.2%；有一年以上留学经历的教师637人，占教师总数的24.6% <a href="#">...</a></p></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+    <aside class="profile-card">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>招生</h1>
+        <h2>品质保证，成就你我他</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><a href="#">本科生招生</a></li>
+          <li><a href="#">研究生招生</a></li>
+          <li><a href="#">招收博士后</a></li>
+          <li><a href="#">成人/远程教育 </a></li>
+          <li><a href="#">职业教育</a></li>
+          <li><a href="#">国际合作教育</a></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+    <aside class="profile-card">
+      <header>
+        <a href="#">
+          <img src="./img/index.png">
+        </a>
+        <h1>服务</h1>
+        <h2>每一天如家般温暖</h2>
+      </header>
+      <div class="profile-bio">
+        <ul>
+          <li><a href="#">校园门户</a></li>
+          <li><a href="#">新闻网</a></li>
+          <li><a href="#">校内信息</a></li>
+          <li><a href="#">电邮系统</a></li>
+          <li><a href="#">图书馆</a></li>
+          <li><a href="#">办公系统</a></li>
+          <li><a href="#">个人主页</a></li>
+          <li><a href="#">校园地图</a></li>
+          <li><a href="#">服务指南</a></li>
+        </ul>
+      </div>
+      <ul class="profile-social-links">
+        <li><a href="#">prev</a></li>
+        <li><a href="#" id="show">more</a></li>
+        <li><a href="#">next</a></li>
+      </ul>
+    </aside>
+  </div>
+   <!-- 下拉列表 -->
+  <div class="wrap hidden" id= "dropList">
+    <ol id="ol" class="list">
+    </ol>
+  </div>
+
+  <!-- birds -->
+  <div class="bird"></div>
+<script>
+  function addEvent (ele, event, handler) {
+    if(ele.addEventListener) {
+      ele.addEventListener(event, handler, true);
+    } else {
+      ele.attachEvent("on"+event, handler);
+    }
+  }
+  // 淡入
+  function fadeIn (ele) {
+      var stepLength = 1/50;
+      if (!parseFloat(ele.style.opacity)) {
+          ele.style.opacity = 0;
+      }
+      function step () {
+          if (parseFloat(ele.style.opacity)+stepLength < 1) {
+              ele.style.opacity = parseFloat(ele.style.opacity)+stepLength;
+          } else {
+              ele.style.opacity = 1;
+              clearInterval(setIntervalId);
+          }
+      }
+      var setIntervalId = setInterval(step, 20);
+  }
+  // 淡出
+  function fadeOut (ele) {
+    var stepLength = 1/50;
+    if (!parseFloat(ele.style.opacity)) {
+        ele.style.opacity = 1;
+    }
+    function step () {
+        if (parseFloat(ele.style.opacity)-stepLength > 0) {
+            ele.style.opacity = parseFloat(ele.style.opacity)-stepLength;
+        } else {
+            ele.style.opacity = 0;
+            clearInterval(setIntervalId);
+        }
+    }
+    var setIntervalId = setInterval(step, 20);
+  }
+
+
+
+  var ul = document.getElementById('control');
+  var asides = document.getElementsByTagName('aside');
+  var index = 0;
+  addEvent(
+    ul,'click',function (event) {
+      var target = event.target || window.srcElement;
+      index = target.dataset.index;
+      for(var i=0,aside;aside = asides[i];i++) {
+        aside.style.display = "none";
+        aside.style.opacity = 0;
+      }
+      // book.style.display = "none";
+      // dropList.style.display = "none";
+      book.classList.add('hidden');
+      dropList.classList.add('hidden');
+      //让鸟也消失
+      asides[index].style.display = "block";
+      fadeIn(asides[index]);
+    });
+  
+  var main = document.getElementsByClassName('main')[0];
+  var book = document.getElementsByClassName('component')[0];
+  var bird = document.getElementsByClassName('bird')[0];
+  // 添加图书的出现和鸟的出现的监听事件
+  // 在父容器上设置事件监听
+  addEvent(
+    main,'click', function (event) {
+      // book.style.display = "block";
+      // 上下两者皆可
+      book.classList.remove('hidden');
+      fadeIn(book);
+
+      // 主栏部分消失
+      // asides[index].style.display = "none";
+      fadeOut(asides[index]);
+      // 鸟
+      bird.classList.add("bird-intro");
+      bird.classList.add("bird-moving");
+      // 三秒之后鸟会暂停在书上
+      setTimeout(function () {
+        bird.classList.remove('bird-moving');
+        bird.classList.add('bird-static');
+      },3000);
+    });
+
+
+  var btn = document.getElementsByClassName('btn')[0];
+  //  添加下拉列表的事件监听
+  addEvent(
+    btn,'click',function (event) {
+      var dropList = document.getElementById('dropList');
+      dropList.classList.remove('hidden');
+      fadeIn(dropList);
+      fadeOut(book);
+
+
+    });
+
+  // 鸟的消失的事件监听
+  addEvent(
+    book,"mouseover",function (event) {
+      bird.classList.add('bird-leave');
+    });
+</script>
+<script src="./js/test.js"></script>
+</body>
+</html>

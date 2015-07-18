@@ -1,0 +1,47 @@
+   .category-banner {
+       position: absolute;
+       display: block;
+       overflow: hidden;
+       width: 100%;
+       height: 296px;
+       top: 0;
+       left: 0;
+   }
+   .bird {
+       display: block;
+       position: relative;
+       width: 41px;
+       height: 27px;
+       background-size: 41px;
+       background-position: 0 0;
+       background-repeat: no-repeat;
+
+       transition: transform 5s ease-in-out;
+       -ms-transition: -ms-transform 5s ease-in-out;
+       -webkit-transition: -webkit-transform 5s ease-in-out; /* For Safari 3.1 to 6.0 */
+
+       transform: translate(-41px,-27px);
+       -ms-transform: translate(-41px,-27px);
+       -webkit-transform: translate(-41px,-27px);
+   }
+   .bird-intro {
+       transform: translate(40px,250px);
+       -ms-transform: translate(40px,250px); /* IE 9 */
+       -webkit-transform: translate(40px,250px); /* Chrome, Safari, Opera */
+   }
+   .bird-moving {
+      background-image: url(./img/cardinal_moving.gif);
+      z-index: 1000;
+   }
+   .bird-static {
+      background-image: url(./img/cardinal_static.gif);
+       z-index: 100;
+   }
+   .bird-leave{
+       background-image: url(./img/cardinal_moving.gif);
+       z-index: 1000;  
+     
+       transform: translate(2000px,50px);
+       -ms-transform: translate(2000px,50px); /* IE 9 */
+       -webkit-transform: translate(2000px,50px); /* Chrome, Safari, Opera */
+   }
