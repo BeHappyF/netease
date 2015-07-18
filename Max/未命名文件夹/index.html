@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>tests</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" type="text/css" href="./reset.css" media="all"/>
-  <link rel="stylesheet" type="text/css" href="./main.css" media="all"/>
-  <link rel="stylesheet" type="text/css" href="css/demo.css" />
-  <link rel="stylesheet" type="text/css" href="css/book.css" />
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="./css/main.css" media="all"/>
+  <link rel="stylesheet" type="text/css" href="./css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="./css/book.css" />
   <script src="js/modernizr.custom.js"></script>
   <style>
    .component {
@@ -159,10 +159,10 @@
     <aside class="profile-card">
       <header>
         <a href="#">
-          <img src="./img/index.png">
+          <img src="./img/abstract.png">
         </a>
         <h1>概况</h1>
-        <h2>哈工大精神</h2>
+        <h2>哈工大——精神</h2>
       </header>
       <div class="profile-bio">
         <ul>
@@ -181,10 +181,10 @@
     <aside class="profile-card">
       <header>
         <a href="#">
-          <img src="./img/index.png">
+          <img src="./img/faculty.png">
         </a>
         <h1>院系</h1>
-        <h2>热门院系早知道</h2>
+        <h2>热门院系早先知道</h2>
       </header>
       <div class="profile-bio">
         <ul>
@@ -203,7 +203,7 @@
     <aside class="profile-card">
       <header>
         <a href="#">
-          <img src="./img/index.png">
+          <img src="./img/teacher.png">
         </a>
         <h1>教师</h1>
         <h2>十年树木，百年树人</h2>
@@ -222,10 +222,10 @@
     <aside class="profile-card">
       <header>
         <a href="#">
-          <img src="./img/index.png">
+          <img src="./img/student.png">
         </a>
         <h1>招生</h1>
-        <h2>品质保证，成就你我他</h2>
+        <h2>品质保证，成就你我</h2>
       </header>
       <div class="profile-bio">
         <ul>
@@ -246,7 +246,7 @@
     <aside class="profile-card">
       <header>
         <a href="#">
-          <img src="./img/index.png">
+          <img src="./img/service.png">
         </a>
         <h1>服务</h1>
         <h2>每一天如家般温暖</h2>
@@ -280,112 +280,9 @@
   <!-- birds -->
   <div class="bird"></div>
 <script>
-  function addEvent (ele, event, handler) {
-    if(ele.addEventListener) {
-      ele.addEventListener(event, handler, true);
-    } else {
-      ele.attachEvent("on"+event, handler);
-    }
-  }
-  // 淡入
-  function fadeIn (ele) {
-      var stepLength = 1/50;
-      if (!parseFloat(ele.style.opacity)) {
-          ele.style.opacity = 0;
-      }
-      function step () {
-          if (parseFloat(ele.style.opacity)+stepLength < 1) {
-              ele.style.opacity = parseFloat(ele.style.opacity)+stepLength;
-          } else {
-              ele.style.opacity = 1;
-              clearInterval(setIntervalId);
-          }
-      }
-      var setIntervalId = setInterval(step, 20);
-  }
-  // 淡出
-  function fadeOut (ele) {
-    var stepLength = 1/50;
-    if (!parseFloat(ele.style.opacity)) {
-        ele.style.opacity = 1;
-    }
-    function step () {
-        if (parseFloat(ele.style.opacity)-stepLength > 0) {
-            ele.style.opacity = parseFloat(ele.style.opacity)-stepLength;
-        } else {
-            ele.style.opacity = 0;
-            clearInterval(setIntervalId);
-        }
-    }
-    var setIntervalId = setInterval(step, 20);
-  }
-
-
-
-  var ul = document.getElementById('control');
-  var asides = document.getElementsByTagName('aside');
-  var index = 0;
-  addEvent(
-    ul,'click',function (event) {
-      var target = event.target || window.srcElement;
-      index = target.dataset.index;
-      for(var i=0,aside;aside = asides[i];i++) {
-        aside.style.display = "none";
-        aside.style.opacity = 0;
-      }
-      // book.style.display = "none";
-      // dropList.style.display = "none";
-      book.classList.add('hidden');
-      dropList.classList.add('hidden');
-      //让鸟也消失
-      asides[index].style.display = "block";
-      fadeIn(asides[index]);
-    });
   
-  var main = document.getElementsByClassName('main')[0];
-  var book = document.getElementsByClassName('component')[0];
-  var bird = document.getElementsByClassName('bird')[0];
-  // 添加图书的出现和鸟的出现的监听事件
-  // 在父容器上设置事件监听
-  addEvent(
-    main,'click', function (event) {
-      // book.style.display = "block";
-      // 上下两者皆可
-      book.classList.remove('hidden');
-      fadeIn(book);
-
-      // 主栏部分消失
-      // asides[index].style.display = "none";
-      fadeOut(asides[index]);
-      // 鸟
-      bird.classList.add("bird-intro");
-      bird.classList.add("bird-moving");
-      // 三秒之后鸟会暂停在书上
-      setTimeout(function () {
-        bird.classList.remove('bird-moving');
-        bird.classList.add('bird-static');
-      },3000);
-    });
-
-
-  var btn = document.getElementsByClassName('btn')[0];
-  //  添加下拉列表的事件监听
-  addEvent(
-    btn,'click',function (event) {
-      var dropList = document.getElementById('dropList');
-      dropList.classList.remove('hidden');
-      fadeIn(dropList);
-      fadeOut(book);
-
-
-    });
-
-  // 鸟的消失的事件监听
-  addEvent(
-    book,"mouseover",function (event) {
-      bird.classList.add('bird-leave');
-    });
 </script>
-<script src="./js/test.js"></script>
+<script src="./js/self.js"></script>
+<script src="./js/dropList.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-.wrap{ width:250px;font-size:14px; margin:20px; padding:40px 20px; position: absolute; right: 0;bottom: 10px;}
-.auto{ width:250px;margin:20px;}
+.wrap{ width:350px;font-size:14px; margin:20px; padding:40px 20px; position: absolute; right: 0;bottom: 10px;}
+.auto{ width:350px;margin:20px;}
 .list{ padding:0 10px;}
 .list li{list-style:decimal; line-height:30px;border-bottom: 1px solid #f2f2f2;}
 .list li h1{font-size:20px; font-style:normal; font-family:"Hiragino Sans GB","Hiragino Sans GB W3",'微软雅黑';}
