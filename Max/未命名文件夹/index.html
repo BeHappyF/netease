@@ -11,13 +11,18 @@
   <link rel="stylesheet" type="text/css" href="./css/book.css" />
   <script src="js/modernizr.custom.js"></script>
   <style>
+    body {
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
    .component {
       position: absolute;
       left: 0;
       bottom: 0;
    }
    nav {
-    background-color: rgba(20,20,20,0.5);
+    background-color: rgba(20,20,20,0.3);
     height: 50px;
    }
    nav #control {
@@ -81,10 +86,10 @@
    }
   </style>  
 </head>
-<body>
+<body style="background-image: url(./img/1.jpg)">
   <!-- 头部导航 -->
   <nav>
-    <ul id="control">
+    <ul id="control" class="hidden">
       <li data-index="0">首页</li>
       <li data-index="1">概况</li>
       <li data-index="2">院系设置</li>

@@ -1,7 +1,7 @@
 // 兼容事件监听
 function addEvent (ele, event, handler) {
     if(ele.addEventListener) {
-      ele.addEventListener(event, handler, true);
+      ele.addEventListener(event, handler, false);
     } else {
       ele.attachEvent("on"+event, handler);
     }
@@ -62,8 +62,26 @@ addEvent(
     bird.classList.remove('bird-leave');
     asides[index].style.display = "block";
     fadeIn(asides[index]);
+    // 背景图片的修改
+    var body = document.getElementsByTagName('body')[0];
+    // index的值是一个字符串，所以做运算是需要转换为数字
+    body.style.backgroundImage = "url(./img/"+(+index+1)+".jpg)";
+    fadeIn(body);
   });
-
+//给导航栏的父容器添加事件监听,实现导航栏的淡入淡出
+addEvent(
+  ul.parentNode,'mouseenter', function (event) {
+    ul.classList.remove('hidden');
+    fadeIn(ul);
+  });
+addEvent(
+  ul.parentNode,'mouseleave',function (event) {
+    fadeOut(ul);
+    // 让淡出效果完全呈现
+    setTimeout(function () {
+      ul.classList.add('hidden');
+    },1000);
+  });
 var links = document.getElementsByClassName('profile-social-links');
 var book = document.getElementsByClassName('component')[0];
 var bird = document.getElementsByClassName('bird')[0];
@@ -116,3 +134,4 @@ addEvent(
       // 在这里不能就消除掉bird-leave样式,要不然就能够重复的触发事件，鸟会总是飞
     },3000);
   });
+
