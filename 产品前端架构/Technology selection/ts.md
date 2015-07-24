@@ -212,3 +212,74 @@
 			方法门面包装，使其更易于使用
 			异步队列/流程控制等等
 			
+		Shim
+			es5-shim(部分支持)
+				-GitHub:es-shims/es5-shim
+				-star:3500
+				-size:53k
+			es6-shim(部分支持)
+				-Github:paulmillr/es6-shim
+				-star:1000
+				-size:38k
+
+		Extension
+			underscore
+				-star:13500
+				-size:16.5k
+				-兼容：IE6
+			Lodash
+				-star:8400
+				-size:50k
+				-兼容：IE6+
+				-lodash是underscore的高性能版本，方法大部分都是runtime编译出来的
+
+		Templating
+			①String-based 
+				模板 + 数据 = 展现（在展现之后，修改数据不会刷新，因为实在页面渲染的过程中根据数据而得到的String,然后将String通过innerHTML形成DOM。所以如果想要看到新的数据展示，需要重新渲染）
+				通过字符串生成DOM之后就不会在变化。
+			②Dom-based
+				同上，不过模板中的语法是写在节点上面（但是能够实现数据的更新，并且是局部更新
+			③Living Template
+				前两种方法掐头去尾形成的。
+
+		Component
+			职责：
+				提供基础组件CSS支持
+				提供常用组件如Slider,Modal
+				提供声明式的调用方式（Optional）
+			①Modal
+			②Slider
+			③DatePicker
+			④Tabs
+			
+		Routing
+			职责：
+				监听url变化，并通知注册的模块
+				通过javascript进行主动跳转
+				历史管理
+				对目标浏览器的兼容型支持
+
+		Architecture(解耦)
+			MVC / MVVM / MV*
+			职责：
+				提供一种范式帮助（强制）开发者进行模块解耦
+				视图与模型分离
+				更容易进行单元测试
+				更容易实现应用程序的扩展
+
+			以MVVM为例：
+				Model:数据实体，比如Car,Person等，他们用于记录应用程序的数据
+				View:展示友好的界面，它是数据的定制反映，它包含样式定义以及与vm享有的声明式数据、事件绑定。
+				ViewModel:View与MOdel的粘合剂，它通过绑定、事件与View交互，并可以调用Service处理数据持久化，当然也能通过数据绑定将Model的变动更新到View中
+			Routing是MV*系统的可定位状态的信息来源
+
+			单页系统的普适法则：可定位的应用程序状态都应该统一有路由系统进入，以避免王章的信息流。
+
+			TodoMVC
+
+			推荐参考网站：
+				www.javascripting.com
+				www.javascriptoo.com
+				microjs.com(库都小于10kb)
+			Client Side
+			Server Side
