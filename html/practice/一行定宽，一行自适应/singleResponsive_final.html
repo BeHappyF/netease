@@ -1,0 +1,118 @@
+<!-- 
+可以看到这样最简单的方式实现一行自适应，一行定宽的方式有许多的缺陷：
+1.左右定宽有不同的效果，没有很好的兼容复用；（这个问题就不知道怎么解决了）
+2.里面的内容的一些margin设置会和父容器叠加，没有意想之中的效果；（当然如果reset了之后就不会出现相关的事情）
+-->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tset</title>
+	<style>
+		.g-bd{margin:0 0 10px;}
+		.g-mn{margin-right:310px;background-color: red;}
+		.g-sd{float:right;width:300px;background-color: blue;}
+		.f-cb::after{display:block;visibility:hidden;clear:both;height:0;overflow:hidden;content:".";}
+	</style>
+</head>
+<body>
+	<div class="g-bd f-cb">
+		<div class="g-mn">
+			<p>左侧自适应</p>
+		</div>
+		<div class="g-sd">
+			<p>右侧定宽</p>
+		</div>
+	</div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test2</title>
+	<style>
+		.g-bd{margin:0 0 10px;}
+		.g-sd,.g-mn{height: 300px;}
+		.g-sd{float:left;width:300px;background-color:red;}
+		.g-mn{margin-left: 310px;background-color:blue;}
+		.g-mnc{}
+		.f-cb::after{display:block;visibility:hidden;clear:both;height:0;overflow:0;content:".";}
+	</style>
+</head>
+<body>
+	<div class="g-bd f-cb">
+		<div class="g-sd">
+			<p>左侧定宽</p>
+		</div>
+		<div class="g-mn">
+			<div class="g-mnc">
+				<p>右侧自适应</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html> -->
+<!-- 
+这个方法的好处有几个：
+1.不会出现里面的内容和外部叠加的情况（效果可能没有特别好，但是确实实现了结果）；
+2.简单的修改对应的属性之后，两者实现的效果类似；
+-->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test3</title>
+	<style>
+		.g-bd{margin:0 0 10px;}
+		.g-sd{position:relative;float:left;width:300px;margin-right:-300px;background-color: blue;}
+		.g-mn{float:right;width:100%;}
+		.g-mnc{margin-left: 310px;background-color:red;}
+		.f-cb::after{display:block;visibility:hidden;clear:both;overflow:hidden;height:0;content: ".";}
+	</style>
+</head>
+<body>
+	<div class="g-bd f-cb">
+		<div class="g-sd">
+			<p>左侧定宽</p>
+		</div>
+		<div class="g-mn">
+			<div class="g-mnc">
+				<p>右侧自适应</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html> -->
+<!-- 
+浮动块级元素的高度不知道是怎么决定的。自主决定的高度，其中的内容垂直方向居中对齐。当然修改了高度之后就不会是居中了。
+还有为什么设置相对定位的属性，而且是定宽的div.
+普通的块级元素高度是由其内部的最高的元素所决定。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test4</title>
+	<style>
+		.g-bd{margin:0 0 10px;}
+		.g-sd{position:relative;float:right;width:300px;margin-left:-300px;background-color: blue;}
+		.g-mn{float:left;width:100%;}
+		.g-mnc{margin-right: 310px;background-color:red;}
+		.f-cb::after{display:block;visibility:hidden;clear:both;overflow:hidden;height:0;content: ".";}
+	</style>
+</head>
+<body>
+	<div class="g-bd f-cb">
+		<div class="g-mn">
+			<div class="g-mnc">
+				<p>左侧自适应</p>
+			</div>
+		</div>
+		<div class="g-sd">
+			<p>右侧定宽</p>
+		</div>
+	</div>
+</body>
+</html>
