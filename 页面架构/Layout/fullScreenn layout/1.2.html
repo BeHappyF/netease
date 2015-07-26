@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 设置相对定位是为了增加他的层级，让用户可以点击到左边的元素*/
+		.left{float:left;width:100px;position:relative;}
+		/* 设置width:100%;之后，浮动元素宽度过长而掉下来，这是设置margin-left让长度减短，刚好在同一行容纳。*/
+		/* 有意思的是这里必须设置margin-left而不能是margin-right.如果设置是margin-right，会很有意思：不但起到了缩短的效果，整体还往右移动了。完全不是想要的效果，不知道原因。两个都存在竟然也行。浮动方向无关。*/
+		/*.right-fix{margin-right:-100px;}*/
+		.right-fix{float:left;width:100%;margin-left:-100px;}
+		/* 虽然父容器设置了负的margin-left减少了宽度，但是子容器继承下来的却是完整的宽度。所以还需要设置正的margin*/
+		.right{margin-left:120px;}
+	</style>
+
+</head>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="right-fix">
+			<div class="right">
+				<p>right</p>
+				<p>right</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

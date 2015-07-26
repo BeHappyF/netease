@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 紧密耦合 */
+		.left{float:left;width:100px;}
+		.right{margin-left:120px;}
+	</style>
+</head>
+<body>
+	<!-- div.parent>div.left(>p)+div.right>p*2 -->
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="right">
+			<!-- 如果在右边容器的第一个元素添加clear:both;样式之后，右边容器会掉下来，与左边容器不在同一行。 -->
+			<p style="clear:both;">right</p>
+			<p>right</p>
+		</div>
+	</div>
+</body>
+</html>

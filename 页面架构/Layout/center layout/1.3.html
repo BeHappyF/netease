@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>center layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 必须加入height属性，才能够实现父容器背景显示，why? */
+		.parent{height:1.5em;}
+		.parent{position:relative;}
+		/* left的百分值是相对于父容器，translate的百分值是相对于自身的宽度 */
+		.child{position:absolute;left:50%;transform:translateX(-50%);}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+</body>
+</html>

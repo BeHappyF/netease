@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>center layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* table元素的宽度由内容决定 */
+		.child{display:table;margin:0 auto;}
+
+		/* 兼容IE6.7 */
+		/*.child{margin:0 auto;}*/
+	</style>
+</head>
+<body>
+	<!-- 下面的代码可以这样写：div.parent>div.child{demo} -->
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+
+	<!-- 兼容IE6.7，不知道这样方式的性能如何，毕竟比原来的嵌套了更多层 -->
+	<!-- 这里有个很有意思的东西：这里我没有设置tbody的层级，而直接是tr，但是在chrome的后台可以看到它自动给加了一层tbody。 -->
+	<!-- <div class="parent">
+		<table class="child">
+			<tr><td>DEMO</td></tr>
+		</table>
+	</div> -->
+</body>
+</html>

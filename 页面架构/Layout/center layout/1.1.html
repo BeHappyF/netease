@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>center layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		.parent{text-align:center;}
+		.child{display:inline-block;}
+		/* 兼容IE6.7的代码 */
+		/* 方法一 */
+		/*.child{display:inline-block;*display:inline;*zoom:1;}*/
+		/* 方法二 */
+		/* 这里必须卸载两个样式声明内，是IE的经典bug */
+		/*.child{display:inline-block;}*/
+		/*.child{display:inline;}*/
+
+		/* 由于父容器的设置被继承下来，子容器的内容也居中对齐。修改方式： */
+		/*.child{text-align:left;}*/
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test2</title>
+	<style>
+		.parent{height:300px;}
+		
+		/* 最后的属性加不加没有变化，还是加吧 */
+		.item{width:100px;display:inline-block;vertical-align:bottom;}
+		
+		/* 如果不设置这个属性，相邻之间会有4px的间隔 */
+		/*.item + .item {margin-left:-4px;}*/
+		/* 这样设置也可以消除间距。其实也好理解，间距的产生就是因为文字设计之初的间隔问题。所以如果设置文字大小为0，则不会出现间隔了。 */
+		.parent{font-size:0;}
+		.item1{height:80%;background:#0d6798;}
+		.item2{height:50%;background:#98050c;}
+		.item3{height:30%;background:#149818;}
+		.item4{height:60%;background:#169999;}
+	</style>
+</head>
+<body>
+	<!-- 	div.parent>div.item.item$*4 -->
+	<div class="parent">
+		<div class="item item1"></div>
+		<div class="item item2"></div>
+		<div class="item item3"></div>
+		<div class="item item4"></div>
+	</div>
+</body>
+</html>

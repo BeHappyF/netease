@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		.parent{display:flex;}
+		.left{width:100px;}
+		/* flex:1;相当于flex:1 1 0;分别设置增长因子，收缩因子和基础宽度（相当于width）*/
+		.right{flex:1;margin-left:20px;}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="right">
+			<p>right</p>
+			<p>right</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>center layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 设置父容器为flex之后，子元素自动成为flex-item，其宽度由内容宽度决定 */
+		.parent{display:flex;justify-content:center;}
+		/* 由于宽度由内容决定，也可以通过margin设置达到居中效果*/
+		.child{margin:0 auto;}
+
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+
+</body>
+</html>

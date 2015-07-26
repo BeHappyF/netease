@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		/* 不设置宽度就会使得父容器的宽度和body相同，整体靠左对齐，所以说设置flex的块级元素还是占据父容器宽度 */
+		.parent{height:300px;display:flex;align-items:flex-end;}
+		
+		/* 为了好看一些 */
+		.parent{width:400px;margin:20px auto;}
+		/* 弹性盒子的子容器都是flex-item，如果不设置width属性，则又内容宽度决定。如果不设置高度，则高度为父容器高度。*/
+		.item{width:100px;}
+		.item1{height:80%;background:#0d6798;}
+		.item2{height:50%;background:#98050c;}
+		.item3{height:30%;background:#149818;}
+		.item4{height:60%;background:#169999;}
+
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="item item1"></div>
+		<div class="item item2"></div>
+		<div class="item item3"></div>
+		<div class="item item4"></div>
+	</div>
+</body>
+</html>

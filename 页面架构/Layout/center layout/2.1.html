@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical center</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 这里设置width和height是为了显示更加直观 */
+		.parent{width:4em;height:500px;}
+		/* 不能设置百分比的高度,即使在body设置了100%的页面高度。 */
+		/*body{height: 100%;}*/
+		/*.parent{height: 30%;}*/
+		.child{width:100%;}
+		.parent{display:table-cell;vertical-align:middle;}
+		
+		/* 目前还不太清楚如何在ie6.7下兼容*/
+		/* 还是不能够成功，子容器的高度变成了父容器一样的高度 */
+		/*.parent{vertical-align:middle;}*/
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+
+	<!-- 兼容性下的结构 -->
+<!-- 	<table class="parent">
+		<tr>
+			<td class="child">DEMO</td>
+		</tr>
+	</table>
+ -->
+</body>
+</html>
