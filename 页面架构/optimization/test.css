@@ -1,0 +1,6 @@
+h1,h2,h3{font-weight:bold;}
+h3{width:100px;}
+.g-bd{border:1px solid;border-color:#000 #f00 #f00 #000;color:#bf2;}
+.m-tab{margin:10px 10px 20px 20px;color:red;}
+.m-tab a{display:block;padding:0 10px;font:20px/1.5 "Microsoft YaHei", simsun;}
+.m-side{width:200px;background:url(bg.png) repeat-y #ccc;}
