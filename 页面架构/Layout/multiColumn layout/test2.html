@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test2</title>
+	<style>
+		/* background-origin不能够设置背景颜色的区域，只能是图片*/
+		/* background-color会填充元素的内容，内边距和边框区域，扩展到元素边框的外边界（但不包括外边距）。如果边框有透明部分（如虚线边框），会透过这些透明部分显示出背景色。*/
+		/* 背景颜色的设置区域需要设置background-clip,而不是background-origin. */
+		div{padding:10px;margin:20px;width:200px;height:100px;border:2px dotted red;background-color: green;background-clip:content-box;}
+	</style>
+</head>
+<body>
+	<div>sdf</div>
+</body>
+</html>

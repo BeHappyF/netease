@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 父容器撑开一个间隔的距离 */
+		.parent{margin-left:-20px;}
+		/* 这里的width和样式是耦合的，不同列数需要设置不同的width百分比 */
+		/* 因为内容和间隔的宽度要放在一起计算，所以这里设置了box-sizing属性 */
+		.column{float:left;width:25%;padding-left:20px;box-sizing:border-box;}
+	</style>
+</head>
+<body>
+	<!-- div.parent>div.column*4>p{$} -->
+	<div class="parent">
+		<div class="column">
+			<p>1</p>
+		</div>
+		<div class="column">
+			<p>2</p>
+		</div>
+		<div class="column">
+			<p>3</p>
+		</div>
+		<div class="column">
+			<p>4</p>
+		</div>
+	</div>
+</body>
+</html>

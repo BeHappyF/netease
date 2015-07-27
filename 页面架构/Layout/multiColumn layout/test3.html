@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test3</title>
+	<style>
+		/* 这个貌似有点麻烦啊，先不做这个 */
+		.parent-fix{margin-left:-10px;width:400px;}
+		.parent{display:table;table-layout:fixed;width:100%;}
+		.item{display:table-cell;background-color:#009899;padding-left:10px;height:100px;width:200px;/*background-clip:content-box;*/}
+	</style>
+</head>
+<body>
+	<div class="parent-fix">
+		<div class="parent">
+
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</div>
+</body>
+</html>

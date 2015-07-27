@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 这个方法和前者有一个样式上的细微差别：上者多出来的空隙是父容器的margin部分，而这个则是父容器的内容部分，所以本方法的最左边的padding部分会有父容器的背景色*/
+		/* 暂时想不到改的方法 */
+		.parent-fix{margin-left:-20px;}
+		.parent{display:table;width:100%;table-layout:fixed;}
+		.column{display:table-cell;padding-left:20px;}
+	</style>
+</head>
+<body>
+	<!-- div.parent>div.column*4>p{$} -->
+	<div class="parent-fix">
+		<div class="parent">
+			<div class="column">
+				<p>1</p>
+			</div>
+			<div class="column">
+				<p>2</p>
+			</div>
+			<div class="column">
+				<p>3</p>
+			</div>
+			<div class="column">
+				<p>4</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

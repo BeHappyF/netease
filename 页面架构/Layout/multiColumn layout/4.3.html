@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		p{background: none!important;}
+		.left,.right{background:#444;}
+		/* 通过下列的设置实现将多出的内容截取，只剩下最高的容器的高度的内容 */
+		.parent{overflow:hidden;}
+		/* margin和padding的设置相互抵消。 */
+		.left,.right{padding-bottom:9999px;margin-bottom:-9999px;}
+		.left{float:left;width:100px;margin-right:20px;}
+		.right{overflow:hidden;}
+	</style>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="right">
+			<p>right</p>
+			<p>right</p>
+		</div>
+	</div>
+</body>
+</html>

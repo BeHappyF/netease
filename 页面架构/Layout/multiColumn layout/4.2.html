@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		.parent{display:flex;}
+		.left{margin-right:20px;}
+		.right{flex:1;}
+		/* 这里与table的方式有个区别，就是左右布局的结构性容器可以不设置宽度，直接由内容撑开 */
+		.left p{width:200px;}
+		
+		/* 为了让结果更明显些 */
+		.left{background:#999;}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="right">
+			<p>right</p>
+			<p>right</p>
+		</div>
+	</div>
+</body>
+</html>

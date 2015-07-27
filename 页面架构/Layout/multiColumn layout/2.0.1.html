@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiply Layout</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		/* 这只是一个事例，所以能够实现不定宽加自适应的方式的布局，都能实现多列的不定宽*/
+		.left,.center{float:left;margin-right:20px;}
+		.right{overflow:hidden;}
+		.left p,.center p{width:200px;}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="left">
+			<p>left</p>
+		</div>
+		<div class="center">
+			<p>center</p>
+		</div>
+		<div class="right">
+			<p>right</p>
+			<p>right</p>
+		</div>
+	</div>
+</body>
+</html>
